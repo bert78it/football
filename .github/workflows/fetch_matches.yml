@@ -42,20 +42,42 @@ jobs:
         echo "ODDS_API_KEY=$ODDS_API_KEY" >> .env
         echo "API_SPORTS_KEY=$API_SPORTS_KEY" >> .env
     
+    - name: Debug Information
+      run: |
+        echo "Current directory contents:"
+        ls -la
+        echo "Python version:"
+        python --version
+        echo "Pip packages:"
+        pip list
+
     - name: Run football matches script
       run: |
         python multi_source_matches.py || python fetch_matches.py
       continue-on-error: true
 
+    - name: Debug Information
+      run: |
+        echo "Current directory contents:"
+        ls -la
+        echo "Python version:"
+        python --version
+        echo "Pip packages:"
+        pip list
+
     - name: Generate Calendar
       shell: bash
       run: |
+        echo "Attempting to generate calendar..."
         python generate_calendar.py || echo "Calendar generation failed"
+        echo "Listing files after calendar generation:"
+        ls -la
         if [ ! -f football_matches.ics ]; then
+          echo "Creating dummy calendar..."
           cat > football_matches.ics << EOL
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Football Matches//Calendar//EN
+PRODID:-//Football Matches//Dummy Calendar//EN
 BEGIN:VEVENT
 SUMMARY:No Matches Found
 DTSTART:20250210T000000Z
@@ -64,7 +86,32 @@ END:VEVENT
 END:VCALENDAR
 EOL
         fi
-      continue-on-error: false
+        echo "Final file contents:"
+        cat football_matches.ics
+
+    - name: Generate Calendar
+      shell: bash
+      run: |
+        echo "Attempting to generate calendar..."
+        python generate_calendar.py || echo "Calendar generation failed"
+        echo "Listing files after calendar generation:"
+        ls -la
+        if [ ! -f football_matches.ics ]; then
+          echo "Creating dummy calendar..."
+          cat > football_matches.ics << EOL
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Football Matches//Dummy Calendar//EN
+BEGIN:VEVENT
+SUMMARY:No Matches Found
+DTSTART:20250210T000000Z
+DTEND:20250210T010000Z
+END:VEVENT
+END:VCALENDAR
+EOL
+        fi
+        echo "Final file contents:"
+        cat football_matches.ics
 
     - name: Check and display log
       run: |
