@@ -47,7 +47,7 @@ class FootballDataSources:
             },
             'api_sports': {
                 'key': os.getenv('API_SPORTS_KEY', ''),
-                'base_url': 'https://api-football-v1.p.rapidapi.com/v3',
+                'base_url': 'https://v3.football.api-sports.io',  # Updated endpoint
                 'rate_limit': 30  # requests per minute
             }
         }
@@ -252,7 +252,7 @@ class FootballDataSources:
             
             headers = {
                 'x-rapidapi-key': self.apis['api_sports']['key'],
-                'x-rapidapi-host': 'api-football-v1.p.rapidapi.com'
+                'x-rapidapi-host': 'v3.football.api-sports.io'
             }
             
             # Detailed logging for troubleshooting
