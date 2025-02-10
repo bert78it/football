@@ -42,6 +42,11 @@ jobs:
         python multi_source_matches.py || python fetch_matches.py
       continue-on-error: true
 
+    - name: Generate Calendar
+      run: |
+        python generate_calendar.py
+      continue-on-error: true
+
     - name: Check and display log
       run: |
         if [ -f multi_source_matches.log ]; then
@@ -55,12 +60,13 @@ jobs:
           exit 1
         fi
 
-    - name: Upload log artifact
+    - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: football-matches-log
+        name: football-matches-data
         path: |
           multi_source_matches.log
           football_matches.log
+          football_matches.ics
         retention-days: 7
         overwrite: true

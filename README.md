@@ -61,6 +61,29 @@ Matches are logged and can be retrieved as workflow artifacts.
   2. Import/Export
   3. Choose `football_matches.ics`
 
+### Google Calendar Sync
+
+#### Automatic Method
+1. Download latest `football_matches.ics` from GitHub Actions artifacts
+2. Open Google Calendar
+3. Settings > Import & export
+4. Click "Select file" and choose downloaded `.ics`
+5. Select target calendar
+6. Click "Import"
+
+#### Manual Method
+1. Run `python generate_calendar.py`
+2. Open Google Calendar
+3. Settings > Import & export
+4. Click "Select file" and choose `football_matches.ics`
+5. Select target calendar
+6. Click "Import"
+
+#### Pro Tips
+- Create a dedicated "Football Matches" calendar
+- Set up automatic refresh in Google Calendar settings
+- Color-code imported events for easy visibility
+
 ### Automatic Sync
 - GitHub Actions workflow generates calendar daily
 - Download latest `.ics` from workflow artifacts
