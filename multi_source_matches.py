@@ -35,9 +35,9 @@ class FootballDataSources:
                 'base_url': 'https://api-football-v1.p.rapidapi.com/v3',
                 'rate_limit': 30  # requests per minute
             },
-            'sportmonks': {
-                'key': os.getenv('SPORTMONKS_API_KEY', ''),
-                'base_url': 'https://api.sportmonks.com/v3',
+            'api_football': {
+                'key': os.getenv('API_FOOTBALL_KEY', ''),
+                'base_url': 'https://api-football-v1.p.rapidapi.com/v3',
                 'rate_limit': 20  # requests per minute
             },
             'odds_api': {
@@ -153,45 +153,46 @@ class FootballDataSources:
             logger.error(f"RapidAPI network error: {e}")
             return []
 
-    def fetch_sportmonks_matches(self, date=None):
-        """Fetch matches from SportMonks with robust error handling"""
+    def fetch_api_football_matches(self, date=None):
+        """Fetch matches from API-Football with robust error handling"""
         try:
-            if not self._validate_api_key('sportmonks'):
-                logger.error("SportMonks API key validation failed")
+            if not self._validate_api_key('api_football'):
+                logger.error("API-Football key validation failed")
                 return []
 
             date = date or datetime.now().strftime('%Y-%m-%d')
             
             headers = {
-                'Authorization': f'Bearer {self.apis["sportmonks"]["key"]}',
-                'Accept': 'application/json'
+                'X-RapidAPI-Key': self.apis['api_football']['key'],
+                'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
             }
             
             # Detailed logging for troubleshooting
-            logger.info(f"Attempting SportMonks API request for date: {date}")
+            logger.info(f"Attempting API-Football request for date: {date}")
             
             response = requests.get(
-                f"{self.apis['sportmonks']['base_url']}/fixtures/date/{date}",
+                f"{self.apis['api_football']['base_url']}/fixtures",
+                params={'date': date},
                 headers=headers
             )
             
             if response.status_code == 200:
-                matches_data = response.json().get('data', [])
+                matches_data = response.json().get('response', [])
                 parsed_matches = [
                     {
-                        'home_team': match.get('home_team', {}).get('name', 'Unknown'),
-                        'away_team': match.get('away_team', {}).get('name', 'Unknown'),
-                        'datetime': match.get('starting_at', date),
+                        'home_team': match.get('teams', {}).get('home', {}).get('name', 'Unknown'),
+                        'away_team': match.get('teams', {}).get('away', {}).get('name', 'Unknown'),
+                        'datetime': match.get('fixture', {}).get('date', date),
                         'competition': match.get('league', {}).get('name', 'Unknown League')
                     } for match in matches_data
                 ]
-                logger.info(f"Retrieved {len(parsed_matches)} matches from SportMonks")
+                logger.info(f"Retrieved {len(parsed_matches)} matches from API-Football")
                 return parsed_matches
             else:
-                logger.error(f"SportMonks API error: {response.status_code} - {response.text}")
+                logger.error(f"API-Football error: {response.status_code} - {response.text}")
                 return []
         except Exception as e:
-            logger.error(f"[fetch_sportmonks_matches] Detailed SportMonks API error: {str(e)}")
+            logger.error(f"[fetch_api_football_matches] Detailed API-Football error: {str(e)}")
             return []
 
     def fetch_odds_api_matches(self, date=None):
@@ -295,7 +296,7 @@ class FootballDataSources:
             self.fetch_rapidapi_matches,  # Most reliable
             self.fetch_odds_api_matches,  # Secondary source
             self.fetch_football_data_matches,  # Tertiary sources
-            self.fetch_sportmonks_matches,
+            self.fetch_api_football_matches,
             self.fetch_api_sports_matches
         ]
         
