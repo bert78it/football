@@ -2,16 +2,16 @@ name: Fetch Football Matches
 
 on:
   schedule:
-    # Run daily at 6 AM UTC
-    - cron: '0 6 * * *'
-  workflow_dispatch:  # Allow manual trigger
+    - cron: '0 6 * * *'  # Run daily at 6 AM UTC
+  workflow_dispatch:  # Manual trigger
 
 jobs:
   fetch-matches:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -23,7 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Set up environment variables
+    - name: Prepare environment variables
       env:
         FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
         RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
@@ -37,26 +37,28 @@ jobs:
         echo "ODDS_API_KEY=$ODDS_API_KEY" >> .env
         echo "API_SPORTS_KEY=$API_SPORTS_KEY" >> .env
     
-    - name: Run match fetcher
+    - name: Run football matches script
       run: |
         python multi_source_matches.py || python fetch_matches.py
       continue-on-error: true
 
-    - name: Check log file
+    - name: Check and display log
       run: |
         if [ -f multi_source_matches.log ]; then
+          echo "Multi-source matches log:"
           cat multi_source_matches.log
         elif [ -f football_matches.log ]; then
+          echo "Football matches log:"
           cat football_matches.log
         else
           echo "No log file found"
           exit 1
         fi
-    
+
     - name: Upload log artifact
       uses: actions/upload-artifact@v4
       with:
-        name: matches-log
+        name: football-matches-log
         path: |
           multi_source_matches.log
           football_matches.log
