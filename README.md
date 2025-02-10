@@ -40,6 +40,31 @@ Automated football match data retrieval from multiple APIs, deployed via GitHub 
 ## Output
 Matches are logged and can be retrieved as workflow artifacts.
 
+## Calendar Synchronization
+
+### Generating Calendar File
+1. Run `python generate_calendar.py`
+2. Generates `football_matches.ics`
+
+### Import to Calendar Apps
+- **Google Calendar**: 
+  1. Go to Settings
+  2. Import & export
+  3. Import `football_matches.ics`
+
+- **Apple Calendar**:
+  1. File > Import
+  2. Select `football_matches.ics`
+
+- **Outlook**:
+  1. File > Open & Export
+  2. Import/Export
+  3. Choose `football_matches.ics`
+
+### Automatic Sync
+- GitHub Actions workflow generates calendar daily
+- Download latest `.ics` from workflow artifacts
+
 ## Legal Disclaimer and Acceptable Use
 
 ### 🚨 Important Notice
