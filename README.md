@@ -12,7 +12,7 @@ Automated football match data retrieval from multiple APIs, deployed via GitHub 
    ```
    FOOTBALL_DATA_API_KEY=your_key
    RAPIDAPI_KEY=your_key
-   SPORTMONKS_API_KEY=your_key
+   API_FOOTBALL_KEY=your_key
    ODDS_API_KEY=your_key
    API_SPORTS_KEY=your_key
    ```
@@ -23,7 +23,7 @@ Automated football match data retrieval from multiple APIs, deployed via GitHub 
 3. Add the following repository secrets:
    - `FOOTBALL_DATA_API_KEY`
    - `RAPIDAPI_KEY`
-   - `SPORTMONKS_API_KEY`
+   - `API_FOOTBALL_KEY`
    - `ODDS_API_KEY`
    - `API_SPORTS_KEY`
 
@@ -32,6 +32,27 @@ Automated football match data retrieval from multiple APIs, deployed via GitHub 
 - Fetches matches from multiple sources
 - Logs results to `multi_source_matches.log`
 - Artifacts uploaded for review
+
+## API Sources
+
+Current APIs used for match data retrieval:
+- Football-Data.org
+- RapidAPI
+- API-Football
+- Odds API
+- API-Sports
+
+### API Configuration
+Ensure the following environment variables are set:
+- `FOOTBALL_DATA_API_KEY`
+- `RAPIDAPI_KEY`
+- `API_FOOTBALL_KEY`
+- `ODDS_API_KEY`
+- `API_SPORTS_KEY`
+
+### Notes
+- SportMonks API has been removed due to authentication issues
+- Multiple fallback sources ensure robust match data retrieval
 
 ## Customization
 - Modify `.github/workflows/fetch_matches.yml` to change schedule
