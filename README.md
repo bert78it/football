@@ -39,3 +39,34 @@ Automated football match data retrieval from multiple APIs, deployed via GitHub 
 
 ## Output
 Matches are logged and can be retrieved as workflow artifacts.
+
+## Legal Disclaimer and Acceptable Use
+
+### 🚨 Important Notice
+
+**THIS SOFTWARE IS PROVIDED FOR EDUCATIONAL AND PERSONAL USE ONLY**
+
+#### Prohibited Uses
+- **Do NOT use this script for:**
+  - IPTV streaming
+  - Unauthorized content redistribution
+  - Copyright infringement
+  - Commercial exploitation of match data
+  - Any illegal or unethical purposes
+
+#### Liability and Responsibility
+- The creator of this script assumes NO responsibility for:
+  - Misuse of the software
+  - Legal consequences arising from improper use
+  - Any damages or losses incurred
+  - Violations of terms of service of data providers
+
+#### User Acknowledgment
+By using this script, you explicitly agree that:
+1. You will use the data only for personal, non-commercial purposes
+2. You understand and accept full legal responsibility for your actions
+3. You will comply with all applicable laws and API providers' terms of service
+
+**Violation of these terms may result in legal action and immediate revocation of usage rights.**
+
+*Last Updated: February 2025*
