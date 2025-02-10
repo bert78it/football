@@ -45,7 +45,9 @@ jobs:
     - name: Generate Calendar
       run: |
         python generate_calendar.py
-      continue-on-error: true
+        # Verify file was created
+        ls -l football_matches.ics || echo "Calendar file not generated"
+      continue-on-error: false
 
     - name: Check and display log
       run: |
