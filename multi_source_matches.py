@@ -284,26 +284,42 @@ class FootballDataSources:
             return []
 
     def fetch_matches(self, date=None):
-        """Fetch matches from multiple sources with error resilience"""
-        all_matches = []
+        """
+        Fetch matches from multiple sources with fallback strategy
+        Prioritize sources based on reliability and coverage
+        """
+        date = date or datetime.now().strftime('%Y-%m-%d')
         
-        # List of fetch methods to try
-        sources = [
-            self.fetch_football_data_matches,
-            self.fetch_rapidapi_matches,
+        # Prioritized API sources
+        api_sources = [
+            self.fetch_rapidapi_matches,  # Most reliable
+            self.fetch_odds_api_matches,  # Secondary source
+            self.fetch_football_data_matches,  # Tertiary sources
             self.fetch_sportmonks_matches,
-            self.fetch_odds_api_matches,
             self.fetch_api_sports_matches
         ]
         
-        for source in sources:
+        all_matches = []
+        for source in api_sources:
             try:
                 matches = source(date)
-                all_matches.extend(matches)
+                if matches:
+                    logger.info(f"Retrieved {len(matches)} matches from {source.__name__}")
+                    all_matches.extend(matches)
             except Exception as e:
-                logger.error(f"Error fetching matches from {source.__name__}: {e}")
+                logger.warning(f"Error fetching matches from {source.__name__}: {e}")
         
-        return all_matches
+        # Remove duplicates while preserving order
+        unique_matches = []
+        seen = set()
+        for match in all_matches:
+            match_key = (match.get('home_team'), match.get('away_team'), match.get('datetime'))
+            if match_key not in seen:
+                seen.add(match_key)
+                unique_matches.append(match)
+        
+        logger.info(f"Total unique matches retrieved: {len(unique_matches)}")
+        return unique_matches
 
 def main():
     # Allow specifying a date via command line argument
