@@ -70,3 +70,9 @@ By using this script, you explicitly agree that:
 **Violation of these terms may result in legal action and immediate revocation of usage rights.**
 
 *Last Updated: February 2025*
+
+## Support the Project
+
+If you find this project helpful, consider supporting its development:
+
+<a href="https://www.buymeacoffee.com/bert78it" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
