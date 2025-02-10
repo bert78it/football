@@ -53,10 +53,10 @@ class FootballDataSources:
         }
 
     def _validate_api_key(self, api_name):
-        """Validate API key for a specific service"""
-        api_config = self.apis.get(api_name, {})
-        if not api_config.get('key'):
-            logger.warning(f"No API key provided for {api_name}")
+        """Enhanced API key validation with detailed logging"""
+        api_key = self.apis.get(api_name, {}).get('key', '')
+        if not api_key:
+            logger.warning(f"No API key found for {api_name}. Skipping this data source.")
             return False
         return True
 
@@ -154,44 +154,44 @@ class FootballDataSources:
             return []
 
     def fetch_sportmonks_matches(self, date=None):
-        """Fetch matches from SportMonks"""
-        if not self._validate_api_key('sportmonks'):
-            return []
-
-        date = date or datetime.now().strftime('%Y-%m-%d')
-        
+        """Fetch matches from SportMonks with robust error handling"""
         try:
+            if not self._validate_api_key('sportmonks'):
+                logger.error("SportMonks API key validation failed")
+                return []
+
+            date = date or datetime.now().strftime('%Y-%m-%d')
+            
             headers = {
                 'Authorization': f'Bearer {self.apis["sportmonks"]["key"]}',
                 'Accept': 'application/json'
             }
             
-            # SportMonks API endpoint (hypothetical - adjust based on actual documentation)
-            url = f'{self.apis["sportmonks"]["base_url"]}/football/fixtures/date/{date}'
+            # Detailed logging for troubleshooting
+            logger.info(f"Attempting SportMonks API request for date: {date}")
             
-            response = requests.get(url, headers=headers, timeout=10)
+            response = requests.get(
+                f"{self.apis['sportmonks']['base_url']}/fixtures/date/{date}",
+                headers=headers
+            )
             
             if response.status_code == 200:
                 matches_data = response.json().get('data', [])
-                
-                matches = []
-                for match in matches_data:
-                    match_info = {
-                        'source': 'SportMonks',
-                        'competition': match.get('league', {}).get('name', 'Unknown'),
-                        'home_team': match.get('localTeam', {}).get('name', 'Unknown'),
-                        'away_team': match.get('visitorTeam', {}).get('name', 'Unknown'),
-                        'time': match.get('starting_at', 'Unknown')
-                    }
-                    matches.append(match_info)
-                
-                return matches
+                parsed_matches = [
+                    {
+                        'home_team': match.get('home_team', {}).get('name', 'Unknown'),
+                        'away_team': match.get('away_team', {}).get('name', 'Unknown'),
+                        'datetime': match.get('starting_at', date),
+                        'competition': match.get('league', {}).get('name', 'Unknown League')
+                    } for match in matches_data
+                ]
+                logger.info(f"Retrieved {len(parsed_matches)} matches from SportMonks")
+                return parsed_matches
             else:
                 logger.error(f"SportMonks API error: {response.status_code} - {response.text}")
                 return []
-        
-        except requests.RequestException as e:
-            logger.error(f"SportMonks network error: {e}")
+        except Exception as e:
+            logger.error(f"[fetch_sportmonks_matches] Detailed SportMonks API error: {str(e)}")
             return []
 
     def fetch_odds_api_matches(self, date=None):
@@ -242,49 +242,45 @@ class FootballDataSources:
             return []
 
     def fetch_api_sports_matches(self, date=None):
-        """Fetch matches from API-Sports"""
-        if not self._validate_api_key('api_sports'):
-            return []
-
-        date = date or datetime.now().strftime('%Y-%m-%d')
-        
+        """Fetch matches from API-Sports with robust error handling"""
         try:
+            if not self._validate_api_key('api_sports'):
+                logger.error("API-Sports key validation failed")
+                return []
+
+            date = date or datetime.now().strftime('%Y-%m-%d')
+            
             headers = {
                 'x-rapidapi-key': self.apis['api_sports']['key'],
                 'x-rapidapi-host': 'api-football-v1.p.rapidapi.com'
             }
             
-            # API-Sports endpoint
-            url = 'https://api-football-v1.p.rapidapi.com/v3/fixtures'
+            # Detailed logging for troubleshooting
+            logger.info(f"Attempting API-Sports request for date: {date}")
             
-            querystring = {
-                'date': date,
-                'league': '39'  # Premier League example
-            }
-            
-            response = requests.get(url, headers=headers, params=querystring, timeout=10)
+            response = requests.get(
+                f"{self.apis['api_sports']['base_url']}/fixtures",
+                params={'date': date},
+                headers=headers
+            )
             
             if response.status_code == 200:
                 matches_data = response.json().get('response', [])
-                
-                matches = []
-                for match in matches_data:
-                    match_info = {
-                        'source': 'API-Sports',
-                        'competition': match.get('league', {}).get('name', 'Unknown'),
+                parsed_matches = [
+                    {
                         'home_team': match.get('teams', {}).get('home', {}).get('name', 'Unknown'),
                         'away_team': match.get('teams', {}).get('away', {}).get('name', 'Unknown'),
-                        'time': match.get('fixture', {}).get('date', 'Unknown')
-                    }
-                    matches.append(match_info)
-                
-                return matches
+                        'datetime': match.get('fixture', {}).get('date', date),
+                        'competition': match.get('league', {}).get('name', 'Unknown League')
+                    } for match in matches_data
+                ]
+                logger.info(f"Retrieved {len(parsed_matches)} matches from API-Sports")
+                return parsed_matches
             else:
                 logger.error(f"API-Sports error: {response.status_code} - {response.text}")
                 return []
-        
-        except requests.RequestException as e:
-            logger.error(f"API-Sports network error: {e}")
+        except Exception as e:
+            logger.error(f"[fetch_api_sports_matches] Detailed API-Sports error: {str(e)}")
             return []
 
     def fetch_matches(self, date=None):
