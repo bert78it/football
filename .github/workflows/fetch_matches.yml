@@ -38,7 +38,20 @@ jobs:
         echo "API_SPORTS_KEY=$API_SPORTS_KEY" >> .env
     
     - name: Run match fetcher
-      run: python multi_source_matches.py
+      run: |
+        python multi_source_matches.py || python fetch_matches.py
+      continue-on-error: true
+
+    - name: Check log file
+      run: |
+        if [ -f multi_source_matches.log ]; then
+          cat multi_source_matches.log
+        elif [ -f football_matches.log ]; then
+          cat football_matches.log
+        else
+          echo "No log file found"
+          exit 1
+        fi
     
     - name: Upload log artifact
       uses: actions/upload-artifact@v3
