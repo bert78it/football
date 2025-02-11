@@ -1,0 +1,54 @@
+name: Daily Football Matches Calendar
+
+on:
+  schedule:
+    # Run at 11:00 UTC (12:00 Rome time)
+    - cron: '0 11 * * *'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  generate-calendar:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Configure API Credentials
+      env:
+        API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        GOOGLE_CALENDAR_CREDENTIALS: ${{ secrets.GOOGLE_CALENDAR_CREDENTIALS }}
+        GOOGLE_CALENDAR_TOKEN: ${{ secrets.GOOGLE_CALENDAR_TOKEN }}
+      run: |
+        mkdir -p credentials
+        echo "API_FOOTBALL_KEY=$API_FOOTBALL_KEY" > .env
+        echo "FOOTBALL_DATA_API_KEY=$FOOTBALL_DATA_API_KEY" >> .env
+        echo "$GOOGLE_CALENDAR_CREDENTIALS" > credentials/credentials.json
+        echo "$GOOGLE_CALENDAR_TOKEN" > credentials/token.json
+    
+    - name: Fetch Matches and Generate Calendar
+      env:
+        EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+      run: |
+        python fetch_matches.py
+        python generate_calendar.py
+        python send_calendar_email.py
+    
+    - name: Upload Calendar as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: football-matches-calendar
+        path: football_matches_calendar.ics
+        retention-days: 5
