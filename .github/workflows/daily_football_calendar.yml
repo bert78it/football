@@ -9,6 +9,9 @@ on:
 jobs:
   generate-calendar:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     
     steps:
     - uses: actions/checkout@v4
@@ -51,4 +54,6 @@ jobs:
       with:
         name: football-matches-calendar
         path: football_matches_calendar.ics
-        retention-days: 5
+        retention-days: 5  # Keep artifacts for 5 days
+        compression-level: 6  # Default compression level
+        overwrite: true  # Overwrite if exists
