@@ -54,6 +54,19 @@ Ensure the following environment variables are set:
 - SportMonks API has been removed due to authentication issues
 - Multiple fallback sources ensure robust match data retrieval
 
+## Features
+
+### Google Calendar Integration
+- Automatically create local `.ics` calendar file
+- Upload football matches directly to your Google Calendar
+- Supports multiple match sources
+- Easy OAuth 2.0 authentication
+
+### Setup Google Calendar
+1. Follow instructions in `GOOGLE_CALENDAR_SETUP.md`
+2. Install required dependencies
+3. Run `generate_calendar.py`
+
 ## Customization
 - Modify `.github/workflows/fetch_matches.yml` to change schedule
 - Update `multi_source_matches.py` to add/remove data sources
@@ -108,6 +121,74 @@ Matches are logged and can be retrieved as workflow artifacts.
 ### Automatic Sync
 - GitHub Actions workflow generates calendar daily
 - Download latest `.ics` from workflow artifacts
+
+## Cloud-Based Automation with GitHub Actions
+
+### Workflow Overview
+- Automatically runs daily at 00:00 UTC
+- Fetches football matches
+- Generates Google Calendar
+- Sends calendar via email
+
+### Setup Requirements
+1. GitHub Repository Secrets:
+   - `SPORTMONKS_API_KEY`: Your SportMonks API key
+   - `GOOGLE_CALENDAR_CREDENTIALS`: Google Calendar API credentials JSON
+   - `GOOGLE_CALENDAR_TOKEN`: Google Calendar OAuth token JSON
+   - `EMAIL_SENDER`: Gmail sender email
+   - `EMAIL_PASSWORD`: Gmail app password
+   - `RECIPIENT_EMAIL`: Email to receive the calendar
+
+### Email Configuration
+- Use Gmail with App Password
+- Enable 2-Factor Authentication
+- Generate App Password in Google Account settings
+
+### Manual Workflow Trigger
+- Can be manually triggered from GitHub Actions tab
+- Useful for testing or on-demand calendar generation
+
+### Workflow Steps
+1. Install dependencies
+2. Configure API credentials
+3. Fetch football matches
+4. Generate calendar
+5. Send email with calendar attachment
+6. Upload calendar as GitHub artifact
+
+### Troubleshooting
+- Check GitHub Actions logs for any errors
+- Verify all secrets are correctly set
+- Ensure email configuration is valid
+
+## Automation Setup
+
+### Windows Task Scheduler
+1. Open Windows Task Scheduler
+2. Click "Create Task"
+3. Name the task "Daily Football Matches"
+4. Under the "Triggers" tab:
+   - Select "Daily"
+   - Choose a time (e.g., early morning)
+5. Under the "Actions" tab:
+   - Action: Start a program
+   - Program/script: `path\to\run_football_matches.bat`
+   - Working directory: `path\to\football_matches_daily`
+
+### Logging
+- Automation logs are saved in `daily_football_automation.log`
+- Check this file for successful runs or any errors
+
+## Troubleshooting
+- Ensure all dependencies are installed (`requirements.txt`)
+- Verify Google Calendar API credentials are up to date
+- Check `.env` file for correct API keys
+
+## Manual Execution
+To run manually:
+```bash
+python run_daily_football_matches.py
+```
 
 ## Legal Disclaimer and Acceptable Use
 

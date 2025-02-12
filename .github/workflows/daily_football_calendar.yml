@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write
     
     steps:
     - uses: actions/checkout@v4
@@ -32,18 +31,16 @@ jobs:
         FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
         GOOGLE_CALENDAR_CREDENTIALS: ${{ secrets.GOOGLE_CALENDAR_CREDENTIALS }}
         GOOGLE_CALENDAR_TOKEN: ${{ secrets.GOOGLE_CALENDAR_TOKEN }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
       run: |
         mkdir -p credentials
         echo "API_FOOTBALL_KEY=$API_FOOTBALL_KEY" > .env
         echo "FOOTBALL_DATA_API_KEY=$FOOTBALL_DATA_API_KEY" >> .env
         echo "$GOOGLE_CALENDAR_CREDENTIALS" > credentials/credentials.json
         echo "$GOOGLE_CALENDAR_TOKEN" > credentials/token.json
+        echo "RECIPIENT_EMAIL=$RECIPIENT_EMAIL" >> .env
     
     - name: Fetch Matches and Generate Calendar
-      env:
-        EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
-        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
       run: |
         python fetch_matches.py
         python generate_calendar.py

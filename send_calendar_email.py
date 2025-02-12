@@ -1,14 +1,41 @@
 import os
 import json
-import smtplib
+import base64
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 from datetime import datetime
 import logging
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+from googleapiclient.discovery import build
+import pickle
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def get_gmail_service():
+    """Gets Gmail service using the same credentials as calendar"""
+    SCOPES = ['https://www.googleapis.com/auth/gmail.send']
+    creds = None
+
+    if os.path.exists('credentials/token.json'):
+        creds = Credentials.from_authorized_user_file('credentials/token.json', SCOPES)
+
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(
+                'credentials/credentials.json', SCOPES)
+            creds = flow.run_local_server(port=0)
+        
+        # Save the credentials
+        with open('credentials/token.json', 'w') as token:
+            token.write(creds.to_json())
+
+    return build('gmail', 'v1', credentials=creds)
 
 def format_matches_summary():
     """Create a summary of today's matches for the email body"""
@@ -35,26 +62,20 @@ def format_matches_summary():
         return "Error retrieving match information."
 
 def send_calendar_email():
-    # Email configuration from environment variables
-    sender_email = os.getenv('EMAIL_SENDER')
-    sender_password = os.getenv('EMAIL_PASSWORD')
-    recipient_email = os.getenv('RECIPIENT_EMAIL')
+    try:
+        # Get Gmail service
+        service = get_gmail_service()
+        
+        # Create the email message
+        msg = MIMEMultipart()
+        msg['to'] = os.environ.get('RECIPIENT_EMAIL', 'your-email@gmail.com')
+        msg['subject'] = f"Football Matches for {datetime.now().strftime('%Y-%m-%d')}"
 
-    if not all([sender_email, sender_password, recipient_email]):
-        logging.warning("Email configuration is incomplete. Skipping email.")
-        return
+        # Get matches summary
+        matches_summary = format_matches_summary()
 
-    # Create the email message
-    msg = MIMEMultipart()
-    msg['From'] = sender_email
-    msg['To'] = recipient_email
-    msg['Subject'] = f"Football Matches for {datetime.now().strftime('%Y-%m-%d')}"
-
-    # Get matches summary
-    matches_summary = format_matches_summary()
-
-    # Email body
-    body = f"""
+        # Email body
+        body = f"""
 Hello Football Fan,
 
 Here are today's matches:
@@ -62,30 +83,33 @@ Here are today's matches:
 {matches_summary}
 
 These matches have been added to your calendar automatically.
-You can find the calendar file attached to this email.
 
 Best regards,
 Your Football Matches Bot
-    """
-    msg.attach(MIMEText(body, 'plain'))
+        """
+        msg.attach(MIMEText(body, 'plain'))
 
-    # Attach the calendar file
-    calendar_path = 'football_matches_calendar.ics'
-    if os.path.exists(calendar_path):
-        with open(calendar_path, 'rb') as file:
-            part = MIMEApplication(file.read(), Name=os.path.basename(calendar_path))
-            part['Content-Disposition'] = f'attachment; filename="{os.path.basename(calendar_path)}"'
-            msg.attach(part)
-    else:
-        logging.error(f"Calendar file {calendar_path} not found.")
-        return
+        # Attach the calendar file
+        calendar_path = 'football_matches_calendar.ics'
+        if os.path.exists(calendar_path):
+            with open(calendar_path, 'rb') as file:
+                part = MIMEApplication(file.read(), Name=os.path.basename(calendar_path))
+                part['Content-Disposition'] = f'attachment; filename="{os.path.basename(calendar_path)}"'
+                msg.attach(part)
+        else:
+            logging.warning(f"Calendar file {calendar_path} not found.")
 
-    # Send the email
-    try:
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-            server.login(sender_email, sender_password)
-            server.send_message(msg)
+        # Encode the message
+        raw_message = base64.urlsafe_b64encode(msg.as_bytes()).decode('utf-8')
+        
+        # Send the email
+        service.users().messages().send(
+            userId='me',
+            body={'raw': raw_message}
+        ).execute()
+        
         logging.info("Email sent successfully")
+    
     except Exception as e:
         logging.error(f"Error sending email: {e}")
 

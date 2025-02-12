@@ -59,6 +59,30 @@ class FootballDataSources:
             return False
         return True
 
+    def validate_api_keys(self):
+        """
+        Validate the presence and basic format of API keys.
+        Raises a ValueError if any critical API key is missing.
+        """
+        critical_apis = [
+            'football_data', 
+            'rapidapi', 
+            'api_sports', 
+            'api_football', 
+            'odds_api'
+        ]
+        
+        missing_keys = []
+        for api in critical_apis:
+            key = self.apis[api]['key']
+            if not key or len(key) < 10:  # Basic length check
+                missing_keys.append(api)
+        
+        if missing_keys:
+            error_msg = f"Missing or invalid API keys for: {', '.join(missing_keys)}"
+            logger.critical(error_msg)
+            raise ValueError(error_msg)
+
     def fetch_football_data_matches(self, date=None):
         """Fetch matches from Football-Data.org with robust error handling"""
         try:
@@ -274,41 +298,43 @@ class FootballDataSources:
 
     def fetch_matches(self, date=None):
         """
-        Fetch matches from multiple sources with fallback strategy
-        Prioritize sources based on reliability and coverage
+        Enhanced match fetching with comprehensive error handling.
         """
-        date = date or datetime.now().strftime('%Y-%m-%d')
-        
-        # Prioritized API sources
-        api_sources = [
+        try:
+            # Validate API keys before attempting to fetch
+            self.validate_api_keys()
+        except ValueError as key_error:
+            logger.error(f"API Key Validation Failed: {key_error}")
+            return []
+
+        all_matches = []
+        failed_sources = []
+
+        fetch_sources = [
             self.fetch_rapidapi_matches,  # Most reliable
             self.fetch_odds_api_matches,  # Secondary source
             self.fetch_football_data_matches,  # Tertiary sources
             self.fetch_api_football_matches,
             self.fetch_api_sports_matches
         ]
-        
-        all_matches = []
-        for source in api_sources:
+
+        for source in fetch_sources:
             try:
-                matches = source(date)
-                if matches:
-                    logger.info(f"Retrieved {len(matches)} matches from {source.__name__}")
-                    all_matches.extend(matches)
+                source_matches = source(date)
+                if source_matches:
+                    all_matches.extend(source_matches)
+                    logger.info(f"Successfully fetched {len(source_matches)} matches from {source.__name__}")
+                else:
+                    failed_sources.append(source.__name__)
             except Exception as e:
-                logger.warning(f"Error fetching matches from {source.__name__}: {e}")
-        
-        # Remove duplicates while preserving order
-        unique_matches = []
-        seen = set()
-        for match in all_matches:
-            match_key = (match.get('home_team'), match.get('away_team'), match.get('datetime'))
-            if match_key not in seen:
-                seen.add(match_key)
-                unique_matches.append(match)
-        
-        logger.info(f"Total unique matches retrieved: {len(unique_matches)}")
-        return unique_matches
+                logger.warning(f"Failed to fetch matches from {source.__name__}: {e}")
+                failed_sources.append(source.__name__)
+
+        if not all_matches:
+            logger.error(f"No matches retrieved. Failed sources: {failed_sources}")
+            # Optional: Send an alert or notification about complete API failure
+
+        return all_matches
 
 def main():
     # Allow specifying a date via command line argument
