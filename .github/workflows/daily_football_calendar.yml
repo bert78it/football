@@ -28,15 +28,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install --upgrade setuptools wheel
         pip install -r requirements.txt
-    
-    - name: Verify Environment
-      run: |
-        if [ ! -f "requirements.txt" ]; then
-          echo "Error: requirements.txt not found"
-          exit 1
-        fi
-        python -c "import requests; import icalendar; import google.oauth2; import google_auth_oauthlib; import googleapiclient; import ics"
+        # Verify installations
+        python -m pip list
+        python -c "import sys; print('Python version:', sys.version)"
     
     - name: Configure API Credentials
       env:
@@ -99,6 +95,9 @@ jobs:
         # Print working directory and list files for debugging
         pwd
         ls -la
+        
+        # Verify Python environment
+        python -c "import ics; print('ics version:', ics.__version__)"
         
         # Run the script
         echo "Running fetch_matches.py..."

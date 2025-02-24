@@ -57,6 +57,10 @@ def get_matches_from_api_football():
             response.raise_for_status()
             data = response.json()
             
+            if not data.get('response'):
+                logging.info(f"No matches found for league {league}")
+                continue
+                
             for fixture in data.get('response', []):
                 match_key = (
                     fixture['teams']['home']['name'],
@@ -85,6 +89,7 @@ def get_matches_from_api_football():
             logging.error(f"Error fetching matches for league {league}: {e}")
             continue
     
+    logging.info(f"Found {len(all_matches)} matches from API-Football")
     return all_matches
 
 def get_matches_from_football_data():
