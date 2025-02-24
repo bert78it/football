@@ -33,6 +33,7 @@ jobs:
         # Verify installations
         python -m pip list
         python -c "import sys; print('Python version:', sys.version)"
+        python -c "import icalendar; print('icalendar version:', icalendar.__version__)"
     
     - name: Configure API Credentials
       env:
@@ -96,10 +97,7 @@ jobs:
         pwd
         ls -la
         
-        # Verify Python environment
-        python -c "import ics; print('ics version:', ics.__version__)"
-        
-        # Run the script
+        # Run the fetch_matches script
         echo "Running fetch_matches.py..."
         python fetch_matches.py
         
@@ -108,8 +106,7 @@ jobs:
           exit 1
         fi
         
-        echo "Running fetch_tv_schedule.py..."
-        python fetch_tv_schedule.py
-        
-        echo "Running send_calendar_email.py..."
-        python send_calendar_email.py
+        if [ ! -f "football_matches_calendar.ics" ]; then
+          echo "Error: football_matches_calendar.ics was not created"
+          exit 1
+        fi
