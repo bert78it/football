@@ -5,3 +5,7 @@ google-auth-httplib2==0.2.0
 google-api-python-client==2.114.0
 icalendar==5.0.11
 pytz==2023.3
+beautifulsoup4==4.12.2
+ics==0.7.2
+arrow==1.3.0  # Required by ics
+tatsu==5.11.0  # Required by ics

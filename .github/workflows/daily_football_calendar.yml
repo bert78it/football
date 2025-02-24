@@ -5,6 +5,11 @@ on:
     # Run at 11:00 UTC (12:00 Rome time)
     - cron: '0 11 * * *'
   workflow_dispatch:  # Allow manual triggering
+    inputs:
+      reason:
+        description: 'Reason for manual workflow run'
+        required: false
+        default: 'Manual trigger'
 
 jobs:
   generate-calendar:
@@ -25,6 +30,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
+    - name: Verify Environment
+      run: |
+        if [ ! -f "requirements.txt" ]; then
+          echo "Error: requirements.txt not found"
+          exit 1
+        fi
+        python -c "import requests; import icalendar; import google.oauth2; import google_auth_oauthlib; import googleapiclient; import ics"
+    
     - name: Configure API Credentials
       env:
         API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
@@ -33,15 +46,71 @@ jobs:
         GOOGLE_CALENDAR_TOKEN: ${{ secrets.GOOGLE_CALENDAR_TOKEN }}
         RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
       run: |
+        # Create directories
         mkdir -p credentials
+        
+        # Verify secrets
+        if [ -z "$API_FOOTBALL_KEY" ]; then
+          echo "Error: API_FOOTBALL_KEY is not set"
+          exit 1
+        fi
+        if [ -z "$FOOTBALL_DATA_API_KEY" ]; then
+          echo "Error: FOOTBALL_DATA_API_KEY is not set"
+          exit 1
+        fi
+        if [ -z "$GOOGLE_CALENDAR_CREDENTIALS" ]; then
+          echo "Error: GOOGLE_CALENDAR_CREDENTIALS is not set"
+          exit 1
+        fi
+        if [ -z "$GOOGLE_CALENDAR_TOKEN" ]; then
+          echo "Error: GOOGLE_CALENDAR_TOKEN is not set"
+          exit 1
+        fi
+        if [ -z "$RECIPIENT_EMAIL" ]; then
+          echo "Error: RECIPIENT_EMAIL is not set"
+          exit 1
+        fi
+        
+        # Create environment files
         echo "API_FOOTBALL_KEY=$API_FOOTBALL_KEY" > .env
         echo "FOOTBALL_DATA_API_KEY=$FOOTBALL_DATA_API_KEY" >> .env
+        echo "RECIPIENT_EMAIL=$RECIPIENT_EMAIL" >> .env
+        
+        # Create Google credentials files
         echo "$GOOGLE_CALENDAR_CREDENTIALS" > credentials/credentials.json
         echo "$GOOGLE_CALENDAR_TOKEN" > credentials/token.json
-        echo "RECIPIENT_EMAIL=$RECIPIENT_EMAIL" >> .env
+        
+        # Verify files were created
+        if [ ! -f ".env" ]; then
+          echo "Error: .env file not created"
+          exit 1
+        fi
+        if [ ! -f "credentials/credentials.json" ]; then
+          echo "Error: credentials.json not created"
+          exit 1
+        fi
+        if [ ! -f "credentials/token.json" ]; then
+          echo "Error: token.json not created"
+          exit 1
+        fi
     
-    - name: Fetch Matches and Generate Calendar
+    - name: Run Football Matches Calendar
       run: |
+        # Print working directory and list files for debugging
+        pwd
+        ls -la
+        
+        # Run the script
+        echo "Running fetch_matches.py..."
         python fetch_matches.py
-        python generate_calendar.py
+        
+        if [ ! -f "matches.json" ]; then
+          echo "Error: matches.json was not created"
+          exit 1
+        fi
+        
+        echo "Running fetch_tv_schedule.py..."
+        python fetch_tv_schedule.py
+        
+        echo "Running send_calendar_email.py..."
         python send_calendar_email.py
