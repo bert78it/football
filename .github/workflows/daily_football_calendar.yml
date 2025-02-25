@@ -57,52 +57,35 @@ jobs:
         # Create directories
         mkdir -p credentials
         
-        # Verify secrets
-        if [ -z "$API_FOOTBALL_KEY" ]; then
-          echo "Error: API_FOOTBALL_KEY is not set"
-          exit 1
-        fi
-        if [ -z "$FOOTBALL_DATA_API_KEY" ]; then
-          echo "Error: FOOTBALL_DATA_API_KEY is not set"
-          exit 1
-        fi
-        if [ -z "$GOOGLE_CALENDAR_CREDENTIALS" ]; then
-          echo "Error: GOOGLE_CALENDAR_CREDENTIALS is not set"
-          exit 1
-        fi
-        if [ -z "$GOOGLE_CALENDAR_TOKEN" ]; then
-          echo "Error: GOOGLE_CALENDAR_TOKEN is not set"
-          exit 1
-        fi
-        if [ -z "$RECIPIENT_EMAIL" ]; then
-          echo "Error: RECIPIENT_EMAIL is not set"
-          exit 1
-        fi
+        # Debug secrets (without revealing them)
+        echo "Checking API_FOOTBALL_KEY length: ${#API_FOOTBALL_KEY}"
+        echo "Checking FOOTBALL_DATA_API_KEY length: ${#FOOTBALL_DATA_API_KEY}"
+        echo "Checking GOOGLE_CALENDAR_CREDENTIALS length: ${#GOOGLE_CALENDAR_CREDENTIALS}"
+        echo "Checking GOOGLE_CALENDAR_TOKEN length: ${#GOOGLE_CALENDAR_TOKEN}"
+        echo "Checking RECIPIENT_EMAIL length: ${#RECIPIENT_EMAIL}"
         
         # Create environment files
-        echo "API_FOOTBALL_KEY=$API_FOOTBALL_KEY" > .env
-        echo "FOOTBALL_DATA_API_KEY=$FOOTBALL_DATA_API_KEY" >> .env
-        echo "RECIPIENT_EMAIL=$RECIPIENT_EMAIL" >> .env
+        echo "API_FOOTBALL_KEY=${API_FOOTBALL_KEY}" > .env
+        echo "FOOTBALL_DATA_API_KEY=${FOOTBALL_DATA_API_KEY}" >> .env
+        echo "RECIPIENT_EMAIL=${RECIPIENT_EMAIL}" >> .env
         
         # Create Google credentials files
-        echo "$GOOGLE_CALENDAR_CREDENTIALS" > credentials/credentials.json
-        echo "$GOOGLE_CALENDAR_TOKEN" > credentials/token.json
+        echo "${GOOGLE_CALENDAR_CREDENTIALS}" > credentials/credentials.json
+        echo "${GOOGLE_CALENDAR_TOKEN}" > credentials/token.json
         
-        # Verify files were created
-        if [ ! -f ".env" ]; then
-          echo "Error: .env file not created"
-          exit 1
-        fi
-        if [ ! -f "credentials/credentials.json" ]; then
-          echo "Error: credentials.json not created"
-          exit 1
-        fi
-        if [ ! -f "credentials/token.json" ]; then
-          echo "Error: token.json not created"
-          exit 1
-        fi
+        # Debug file contents (without revealing secrets)
+        echo "Checking .env file exists and size:"
+        ls -l .env
+        echo "Checking credentials files exist and sizes:"
+        ls -l credentials/
     
     - name: Run Football Matches Calendar
+      env:
+        API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        GOOGLE_CALENDAR_CREDENTIALS: ${{ secrets.GOOGLE_CALENDAR_CREDENTIALS }}
+        GOOGLE_CALENDAR_TOKEN: ${{ secrets.GOOGLE_CALENDAR_TOKEN }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
       run: |
         # Print working directory and list files for debugging
         pwd
