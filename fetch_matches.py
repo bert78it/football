@@ -6,11 +6,18 @@ from datetime import datetime, timezone, timedelta
 from icalendar import Calendar, Event
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Load environment variables
+logging.info("Loading environment variables...")
+load_dotenv(verbose=True)
+
+# Debug environment variables
+api_football_key = os.getenv('API_FOOTBALL_KEY')
+football_data_key = os.getenv('FOOTBALL_DATA_API_KEY')
+logging.info(f"API_FOOTBALL_KEY present: {bool(api_football_key)}")
+logging.info(f"FOOTBALL_DATA_API_KEY present: {bool(football_data_key)}")
 
 def get_matches_from_api_football():
     """Fetch matches from API-Football"""
