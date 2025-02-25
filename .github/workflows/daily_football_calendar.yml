@@ -19,6 +19,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history to ensure we have all files
     
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -84,6 +86,10 @@ jobs:
         # Debug environment variables
         echo "Environment variables in .env:"
         cat .env | sed 's/=.*/=***/'
+        
+        # Debug Python environment variables
+        echo "Testing Python environment variables:"
+        python -c "import os; print('API_FOOTBALL_KEY in env:', bool(os.getenv('API_FOOTBALL_KEY'))); print('API_FOOTBALL_KEY in dotenv:', bool(os.getenv('API_FOOTBALL_KEY', None)))"
     
     - name: Run Football Matches Calendar
       env:
@@ -96,6 +102,10 @@ jobs:
         # Print working directory and list files for debugging
         pwd
         ls -la
+        
+        # Debug environment variables
+        echo "Environment variables before running scripts:"
+        env | grep -E "API_|GOOGLE_|RECIPIENT_" | sed 's/=.*/=***/'
         
         # Run the fetch_matches script with debug output
         echo "Running fetch_matches.py..."
@@ -113,6 +123,8 @@ jobs:
         fi
         
         echo "Running fetch_tv_schedule.py..."
+        ls -l fetch_tv_schedule.py  # Debug: check if file exists
+        cat fetch_tv_schedule.py | head -n 5  # Debug: check file contents
         python fetch_tv_schedule.py
         
         echo "Running send_calendar_email.py..."
