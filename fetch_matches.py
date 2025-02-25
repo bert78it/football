@@ -105,53 +105,44 @@ def get_matches_from_api_football():
 
 def get_matches_from_football_data():
     """Fetch matches from Football-Data.org"""
-    url = "https://api.football-data.org/v4/matches"
     api_key = os.getenv('FOOTBALL_DATA_API_KEY')
-    
     if not api_key:
         logging.warning("Football-Data.org API key not found in environment variables")
         return []
 
-    headers = {
-        'X-Auth-Token': api_key
-    }
-
-    # Get today's date in YYYY-MM-DD format
-    today = datetime.now().strftime("%Y-%m-%d")
-    
-    params = {
-        'dateFrom': today,
-        'dateTo': today
-    }
+    headers = {'X-Auth-Token': api_key}
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    url = f"http://api.football-data.org/v4/matches?date={today}"
 
     try:
-        response = requests.get(url, headers=headers, params=params)
-        if response.status_code == 401:
-            logging.error("Football-Data.org error: Invalid API key")
+        response = requests.get(url, headers=headers)
+        if response.status_code != 200:
+            logging.error(f"Error fetching matches from Football-Data.org: {response.status_code}")
             return []
-        elif response.status_code == 400:
-            logging.error(f"Football-Data.org error: {response.text}")
-            return []
-        response.raise_for_status()
+
         data = response.json()
-        
         matches = []
         for match in data.get('matches', []):
+            # Skip matches without both teams
+            if not match.get('homeTeam') or not match.get('awayTeam'):
+                continue
+                
             match_data = {
-                'home_team': match['homeTeam']['name'],
-                'away_team': match['awayTeam']['name'],
-                'date': match['utcDate'],
-                'venue': None,  # Football-Data.org doesn't provide venue
-                'status': match['status'],
+                'home_team': match['homeTeam'].get('name', 'Unknown Team'),
+                'away_team': match['awayTeam'].get('name', 'Unknown Team'),
+                'date': match.get('utcDate'),
+                'venue': match.get('venue'),
+                'status': match.get('status'),
                 'source': 'Football-Data.org',
-                'competition': match['competition']['name']
+                'competition': match.get('competition', {}).get('name', 'Unknown Competition')
             }
             matches.append(match_data)
-        
+
         logging.info(f"Found {len(matches)} matches from Football-Data.org")
         return matches
+
     except Exception as e:
-        logging.error(f"Error fetching matches from Football-Data.org: {e}")
+        logging.error(f"Error fetching matches from Football-Data.org: {str(e)}")
         return []
 
 def create_calendar_file(matches):
