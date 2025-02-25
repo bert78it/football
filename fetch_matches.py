@@ -4,6 +4,10 @@ import logging
 import requests
 from datetime import datetime, timezone, timedelta
 from icalendar import Calendar, Event
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
