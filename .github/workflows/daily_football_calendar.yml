@@ -50,6 +50,24 @@ jobs:
         # Test imports
         python -c "import requests; import dotenv; import google.oauth2; import icalendar; import pytz; import bs4; print('All imports successful')"
     
+    - name: Debug Secrets
+      env:
+        API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        GOOGLE_CALENDAR_CREDENTIALS: ${{ secrets.GOOGLE_CALENDAR_CREDENTIALS }}
+        GOOGLE_CALENDAR_TOKEN: ${{ secrets.GOOGLE_CALENDAR_TOKEN }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+      run: |
+        echo "=== Checking Secret Lengths ==="
+        echo "API_FOOTBALL_KEY length: ${#API_FOOTBALL_KEY}"
+        echo "FOOTBALL_DATA_API_KEY length: ${#FOOTBALL_DATA_API_KEY}"
+        echo "GOOGLE_CALENDAR_CREDENTIALS length: ${#GOOGLE_CALENDAR_CREDENTIALS}"
+        echo "GOOGLE_CALENDAR_TOKEN length: ${#GOOGLE_CALENDAR_TOKEN}"
+        echo "RECIPIENT_EMAIL length: ${#RECIPIENT_EMAIL}"
+        
+        echo "=== Environment Variables ==="
+        env | grep -E "API_|GOOGLE_|RECIPIENT_" | sed 's/=.*/=***/'
+    
     - name: Configure API Credentials
       env:
         API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
@@ -61,50 +79,41 @@ jobs:
         # Create directories
         mkdir -p credentials
         
-        # Debug secrets (without revealing them)
-        echo "Checking API_FOOTBALL_KEY length: ${#API_FOOTBALL_KEY}"
-        echo "Checking FOOTBALL_DATA_API_KEY length: ${#FOOTBALL_DATA_API_KEY}"
-        echo "Checking GOOGLE_CALENDAR_CREDENTIALS length: ${#GOOGLE_CALENDAR_CREDENTIALS}"
-        echo "Checking GOOGLE_CALENDAR_TOKEN length: ${#GOOGLE_CALENDAR_TOKEN}"
-        echo "Checking RECIPIENT_EMAIL length: ${#RECIPIENT_EMAIL}"
-        
+        echo "=== Writing Environment Files ==="
         # Create environment files
-        echo "API_FOOTBALL_KEY=${API_FOOTBALL_KEY}" > .env
-        echo "FOOTBALL_DATA_API_KEY=${FOOTBALL_DATA_API_KEY}" >> .env
-        echo "RECIPIENT_EMAIL=${RECIPIENT_EMAIL}" >> .env
+        echo "API_FOOTBALL_KEY='${API_FOOTBALL_KEY}'" > .env
+        echo "FOOTBALL_DATA_API_KEY='${FOOTBALL_DATA_API_KEY}'" >> .env
+        echo "RECIPIENT_EMAIL='${RECIPIENT_EMAIL}'" >> .env
         
         # Create Google credentials files
         echo "${GOOGLE_CALENDAR_CREDENTIALS}" > credentials/credentials.json
         echo "${GOOGLE_CALENDAR_TOKEN}" > credentials/token.json
         
-        # Debug file contents (without revealing secrets)
-        echo "Checking .env file exists and size:"
-        ls -l .env
-        echo "Checking credentials files exist and sizes:"
-        ls -l credentials/
-        
-        # Debug environment variables
-        echo "Environment variables in .env:"
+        echo "=== Checking File Contents ==="
+        echo "Contents of .env (masked):"
         cat .env | sed 's/=.*/=***/'
         
-        # Debug Python environment variables
-        echo "Testing Python environment variables:"
+        echo "=== Checking File Permissions ==="
+        ls -l .env credentials/
+        
+        echo "=== Testing Python Environment ==="
         python -c "
 from dotenv import load_dotenv
 import os
 
 print('Before loading .env:')
-print('API_FOOTBALL_KEY in env:', bool(os.getenv('API_FOOTBALL_KEY')))
+for var in ['API_FOOTBALL_KEY', 'FOOTBALL_DATA_API_KEY']:
+    print(f'{var} in env:', bool(os.getenv(var)))
 
+print('\nLoading .env file...')
 load_dotenv(verbose=True)
 
 print('\nAfter loading .env:')
-print('API_FOOTBALL_KEY in env:', bool(os.getenv('API_FOOTBALL_KEY')))
-print('.env file contents:')
-with open('.env', 'r') as f:
-    for line in f:
-        key = line.split('=')[0]
-        print(f'{key}=***')
+for var in ['API_FOOTBALL_KEY', 'FOOTBALL_DATA_API_KEY']:
+    print(f'{var} in env:', bool(os.getenv(var)))
+
+print('\nContents of .env directory:')
+print(open('.env', 'r').read().replace('=', '=***'))
 "
     
     - name: Run Football Matches Calendar
@@ -115,28 +124,14 @@ with open('.env', 'r') as f:
         GOOGLE_CALENDAR_TOKEN: ${{ secrets.GOOGLE_CALENDAR_TOKEN }}
         RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
       run: |
-        # Print working directory and list files for debugging
+        echo "=== Current Directory Contents ==="
         pwd
         ls -la
         
-        # Debug environment variables
-        echo "Environment variables before running scripts:"
+        echo "=== Environment Variables ==="
         env | grep -E "API_|GOOGLE_|RECIPIENT_" | sed 's/=.*/=***/'
         
-        # Run the fetch_matches script with debug output
-        echo "Running fetch_matches.py..."
-        python -c "
-from dotenv import load_dotenv
-import os
-
-print('Before loading .env:')
-print('API_FOOTBALL_KEY in env:', bool(os.getenv('API_FOOTBALL_KEY')))
-
-load_dotenv(verbose=True)
-
-print('\nAfter loading .env:')
-print('API_FOOTBALL_KEY in env:', bool(os.getenv('API_FOOTBALL_KEY')))
-"
+        echo "=== Running fetch_matches.py ==="
         python fetch_matches.py
         
         if [ ! -f "matches.json" ]; then
@@ -149,10 +144,15 @@ print('API_FOOTBALL_KEY in env:', bool(os.getenv('API_FOOTBALL_KEY')))
           exit 1
         fi
         
-        echo "Running fetch_tv_schedule.py..."
-        ls -l fetch_tv_schedule.py  # Debug: check if file exists
-        cat fetch_tv_schedule.py | head -n 5  # Debug: check file contents
+        echo "=== Running fetch_tv_schedule.py ==="
+        # Debug file existence
+        echo "Checking fetch_tv_schedule.py:"
+        ls -l fetch_tv_schedule.py || echo "File not found!"
+        echo "Files in current directory:"
+        ls -la
+        
+        # Try to run the script
         python fetch_tv_schedule.py
         
-        echo "Running send_calendar_email.py..."
+        echo "=== Running send_calendar_email.py ==="
         python send_calendar_email.py
