@@ -25,24 +25,26 @@ jobs:
       with:
         python-version: '3.9'
     
-    - name: Debug Requirements
-      run: |
-        echo "Current directory:"
-        pwd
-        echo "Directory contents:"
-        ls -la
-        echo "Requirements.txt contents:"
-        cat requirements.txt
-    
-    - name: Install dependencies
+    - name: Install dependencies one by one
       run: |
         python -m pip install --upgrade pip
         pip install --upgrade setuptools wheel
-        pip install -r requirements.txt
-        # Verify installations
-        python -m pip list
-        python -c "import sys; print('Python version:', sys.version)"
-        python -c "import icalendar; print('icalendar version:', icalendar.__version__)"
+        echo "Installing requests..."
+        pip install requests==2.31.0
+        echo "Installing python-dotenv..."
+        pip install python-dotenv==1.0.0
+        echo "Installing google packages..."
+        pip install google-auth-oauthlib==1.2.0
+        pip install google-auth-httplib2==0.2.0
+        pip install google-api-python-client==2.114.0
+        echo "Installing icalendar..."
+        pip install icalendar==5.0.11
+        echo "Installing pytz..."
+        pip install pytz==2023.3
+        echo "Installing beautifulsoup4..."
+        pip install beautifulsoup4==4.12.2
+        # List installed packages
+        pip list
     
     - name: Configure API Credentials
       env:
