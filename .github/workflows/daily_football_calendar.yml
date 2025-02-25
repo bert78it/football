@@ -45,6 +45,8 @@ jobs:
         pip install beautifulsoup4==4.12.2
         # List installed packages
         pip list
+        # Test imports
+        python -c "import requests; import dotenv; import google.oauth2; import icalendar; import pytz; import bs4; print('All imports successful')"
     
     - name: Configure API Credentials
       env:
@@ -78,6 +80,10 @@ jobs:
         ls -l .env
         echo "Checking credentials files exist and sizes:"
         ls -l credentials/
+        
+        # Debug environment variables
+        echo "Environment variables in .env:"
+        cat .env | sed 's/=.*/=***/'
     
     - name: Run Football Matches Calendar
       env:
@@ -91,8 +97,9 @@ jobs:
         pwd
         ls -la
         
-        # Run the fetch_matches script
+        # Run the fetch_matches script with debug output
         echo "Running fetch_matches.py..."
+        python -c "import os; print('API_FOOTBALL_KEY:', bool(os.getenv('API_FOOTBALL_KEY')))"
         python fetch_matches.py
         
         if [ ! -f "matches.json" ]; then
