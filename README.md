@@ -54,6 +54,37 @@ To run locally:
    ```
 4. Run: `python fetch_matches.py`
 
+## Legal Disclaimer and Acceptable Use
+
+### 🚨 Important Notice
+
+**THIS SOFTWARE IS PROVIDED FOR EDUCATIONAL AND PERSONAL USE ONLY**
+
+#### Prohibited Uses
+- **Do NOT use this script for:**
+  - IPTV streaming
+  - Unauthorized content redistribution
+  - Copyright infringement
+  - Commercial exploitation of match data
+  - Any illegal or unethical purposes
+
+#### Liability and Responsibility
+- The creator of this script assumes NO responsibility for:
+  - Misuse of the software
+  - Legal consequences arising from improper use
+  - Any damages or losses incurred
+  - Violations of terms of service of data providers
+
+#### User Acknowledgment
+By using this script, you explicitly agree that:
+1. You will use the data only for personal, non-commercial purposes
+2. You understand and accept full legal responsibility for your actions
+3. You will comply with all applicable laws and API providers' terms of service
+
+**Violation of these terms may result in legal action and immediate revocation of usage rights.**
+
+*Last Updated: March 2025*
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
