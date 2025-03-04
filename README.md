@@ -1,234 +1,67 @@
-# Football Matches Daily Fetcher
+# Football Matches Daily Calendar
 
-## Project Overview
-Automated football match data retrieval from multiple APIs, deployed via GitHub Actions.
-
-## Setup and Deployment
-
-### Local Development
-1. Clone the repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Create a `.env` file with API keys:
-   ```
-   FOOTBALL_DATA_API_KEY=your_key
-   RAPIDAPI_KEY=your_key
-   API_FOOTBALL_KEY=your_key
-   ODDS_API_KEY=your_key
-   API_SPORTS_KEY=your_key
-   ```
-
-### GitHub Actions Deployment
-1. Fork this repository
-2. Go to repository Settings > Secrets
-3. Add the following repository secrets:
-   - `FOOTBALL_DATA_API_KEY`
-   - `RAPIDAPI_KEY`
-   - `API_FOOTBALL_KEY`
-   - `ODDS_API_KEY`
-   - `API_SPORTS_KEY`
-
-### Workflow Details
-- Scheduled daily at 6 AM UTC
-- Fetches matches from multiple sources
-- Logs results to `multi_source_matches.log`
-- Artifacts uploaded for review
-
-## API Sources
-
-Current APIs used for match data retrieval:
-- Football-Data.org
-- RapidAPI
-- API-Football
-- Odds API
-- API-Sports
-
-### API Configuration
-Ensure the following environment variables are set:
-- `FOOTBALL_DATA_API_KEY`
-- `RAPIDAPI_KEY`
-- `API_FOOTBALL_KEY`
-- `ODDS_API_KEY`
-- `API_SPORTS_KEY`
-
-### Notes
-- SportMonks API has been removed due to authentication issues
-- Multiple fallback sources ensure robust match data retrieval
+## Overview
+Automatically fetches football matches from multiple sources and adds them to your Google Calendar with notifications.
 
 ## Features
+- Fetches matches from Football-Data.org and API-Football
+- Automatically adds matches to Google Calendar
+- Multiple notifications (1 hour, 30 minutes, and 10 minutes before each match)
+- Color-coded events based on competition
+- 60-minute event duration for better calendar visualization
+- Runs daily via GitHub Actions
 
-### Google Calendar Integration
-- Automatically create local `.ics` calendar file
-- Upload football matches directly to your Google Calendar
-- Supports multiple match sources
-- Easy OAuth 2.0 authentication
+## Setup
 
-### Setup Google Calendar
-1. Follow instructions in `GOOGLE_CALENDAR_SETUP.md`
-2. Install required dependencies
-3. Run `generate_calendar.py`
+### 1. API Keys
+You need API keys from:
+- Football-Data.org
+- API-Football
 
-## Customization
-- Modify `.github/workflows/fetch_matches.yml` to change schedule
-- Update `multi_source_matches.py` to add/remove data sources
+### 2. GitHub Repository Setup
+1. Fork this repository
+2. Go to repository Settings > Secrets and variables > Actions
+3. Add the following repository secrets:
+   - `FOOTBALL_DATA_API_KEY`: Your Football-Data.org API key
+   - `API_FOOTBALL_KEY`: Your API-Football key
+   - `GOOGLE_CALENDAR_TOKEN`: Your Google Calendar OAuth token (JSON format)
 
-## Output
-Matches are logged and can be retrieved as workflow artifacts.
+### 3. Google Calendar Integration
+The script will automatically:
+- Add matches to your primary Google Calendar
+- Set notifications at 1 hour, 30 minutes, and 10 minutes before each match
+- Color-code events based on competition
+- Set 60-minute duration for each match event
 
-## Calendar Synchronization
-
-### Generating Calendar File
-1. Run `python generate_calendar.py`
-2. Generates `football_matches.ics`
-
-### Import to Calendar Apps
-- **Google Calendar**: 
-  1. Go to Settings
-  2. Import & export
-  3. Import `football_matches.ics`
-
-- **Apple Calendar**:
-  1. File > Import
-  2. Select `football_matches.ics`
-
-- **Outlook**:
-  1. File > Open & Export
-  2. Import/Export
-  3. Choose `football_matches.ics`
-
-### Google Calendar Sync
-
-#### Automatic Method
-1. Download latest `football_matches.ics` from GitHub Actions artifacts
-2. Open Google Calendar
-3. Settings > Import & export
-4. Click "Select file" and choose downloaded `.ics`
-5. Select target calendar
-6. Click "Import"
-
-#### Manual Method
-1. Run `python generate_calendar.py`
-2. Open Google Calendar
-3. Settings > Import & export
-4. Click "Select file" and choose `football_matches.ics`
-5. Select target calendar
-6. Click "Import"
-
-#### Pro Tips
-- Create a dedicated "Football Matches" calendar
-- Set up automatic refresh in Google Calendar settings
-- Color-code imported events for easy visibility
-
-### Automatic Sync
-- GitHub Actions workflow generates calendar daily
-- Download latest `.ics` from workflow artifacts
-
-## Cloud-Based Automation with GitHub Actions
-
-### Workflow Overview
-- Automatically runs daily at 00:00 UTC
-- Fetches football matches
-- Generates Google Calendar
-- Sends calendar via email
-
-### Setup Requirements
-1. GitHub Repository Secrets:
-   - `SPORTMONKS_API_KEY`: Your SportMonks API key
-   - `GOOGLE_CALENDAR_CREDENTIALS`: Google Calendar API credentials JSON
-   - `GOOGLE_CALENDAR_TOKEN`: Google Calendar OAuth token JSON
-   - `EMAIL_SENDER`: Gmail sender email
-   - `EMAIL_PASSWORD`: Gmail app password
-   - `RECIPIENT_EMAIL`: Email to receive the calendar
-
-### Email Configuration
-- Use Gmail with App Password
-- Enable 2-Factor Authentication
-- Generate App Password in Google Account settings
-
-### Manual Workflow Trigger
-- Can be manually triggered from GitHub Actions tab
-- Useful for testing or on-demand calendar generation
-
-### Workflow Steps
-1. Install dependencies
-2. Configure API credentials
-3. Fetch football matches
-4. Generate calendar
-5. Send email with calendar attachment
-6. Upload calendar as GitHub artifact
-
-### Troubleshooting
-- Check GitHub Actions logs for any errors
-- Verify all secrets are correctly set
-- Ensure email configuration is valid
-
-## Automation Setup
-
-### Windows Task Scheduler
-1. Open Windows Task Scheduler
-2. Click "Create Task"
-3. Name the task "Daily Football Matches"
-4. Under the "Triggers" tab:
-   - Select "Daily"
-   - Choose a time (e.g., early morning)
-5. Under the "Actions" tab:
-   - Action: Start a program
-   - Program/script: `path\to\run_football_matches.bat`
-   - Working directory: `path\to\football_matches_daily`
-
-### Logging
-- Automation logs are saved in `daily_football_automation.log`
-- Check this file for successful runs or any errors
+## Automation
+- GitHub Actions workflow runs daily at 11:00 UTC
+- Fetches matches and adds them to your calendar automatically
+- No manual intervention needed once set up
 
 ## Troubleshooting
-- Ensure all dependencies are installed (`requirements.txt`)
-- Verify Google Calendar API credentials are up to date
-- Check `.env` file for correct API keys
+- Check GitHub Actions logs for any errors
+- Verify all secrets are correctly set in GitHub
+- Ensure Google Calendar token is up to date
 
-## Manual Execution
-To run manually:
-```bash
-python run_daily_football_matches.py
-```
-
-## Legal Disclaimer and Acceptable Use
-
-### 🚨 Important Notice
-
-**THIS SOFTWARE IS PROVIDED FOR EDUCATIONAL AND PERSONAL USE ONLY**
-
-#### Prohibited Uses
-- **Do NOT use this script for:**
-  - IPTV streaming
-  - Unauthorized content redistribution
-  - Copyright infringement
-  - Commercial exploitation of match data
-  - Any illegal or unethical purposes
-
-#### Liability and Responsibility
-- The creator of this script assumes NO responsibility for:
-  - Misuse of the software
-  - Legal consequences arising from improper use
-  - Any damages or losses incurred
-  - Violations of terms of service of data providers
-
-#### User Acknowledgment
-By using this script, you explicitly agree that:
-1. You will use the data only for personal, non-commercial purposes
-2. You understand and accept full legal responsibility for your actions
-3. You will comply with all applicable laws and API providers' terms of service
-
-**Violation of these terms may result in legal action and immediate revocation of usage rights.**
-
-*Last Updated: February 2025*
-
-## Support the Project
-
-If you find this project helpful, consider supporting its development:
-
-<a href="https://www.buymeacoffee.com/bert78it" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+## Development
+To run locally:
+1. Clone the repository
+2. Install dependencies: `pip install -r requirements.txt`
+3. Create a `.env` file with your API keys:
+   ```
+   FOOTBALL_DATA_API_KEY=your_key
+   API_FOOTBALL_KEY=your_key
+   ```
+4. Run: `python fetch_matches.py`
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Support the Project
+
+If you find this project helpful, consider supporting its development:
+
+<a href="https://www.buymeacoffee.com/bert78it" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
