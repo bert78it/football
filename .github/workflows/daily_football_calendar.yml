@@ -39,6 +39,7 @@ jobs:
         pip install icalendar==5.0.11
         pip install pytz==2023.3
         pip install beautifulsoup4==4.12.2
+        pip install python-telegram-bot
     
     - name: Set up Google Calendar credentials
       run: |
