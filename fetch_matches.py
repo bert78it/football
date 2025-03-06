@@ -8,7 +8,7 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
-from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler
+from telegram import Bot
 import asyncio
 from dotenv import load_dotenv
 
@@ -40,7 +40,7 @@ TELEGRAM_CHAT_ID = '5819014856'
 async def send_telegram_notification(match, time_until_match):
     """Send a notification about an upcoming match via Telegram"""
     try:
-        application = Application.builder().token(TELEGRAM_BOT_TOKEN).build()
+        bot = Bot(token=TELEGRAM_BOT_TOKEN)
         
         # Create a nicely formatted message
         emoji_map = {
@@ -65,7 +65,7 @@ async def send_telegram_notification(match, time_until_match):
 _Don't miss this exciting match!_ 🎮
         """
         
-        await application.bot.send_message(
+        await bot.send_message(
             chat_id=TELEGRAM_CHAT_ID,
             text=message,
             parse_mode='Markdown'
