@@ -10,6 +10,7 @@ from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from telegram import Bot
 import asyncio
+from dotenv import load_dotenv
 
 # Enable logging
 logging.basicConfig(
@@ -19,8 +20,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Load environment variables
-def load_env():
-    """Load environment variables and check if they exist"""
+load_dotenv()
+
+def check_env():
+    """Check if required environment variables exist"""
     logging.info("Loading environment variables...")
     required_vars = ['API_FOOTBALL_KEY', 'FOOTBALL_DATA_API_KEY', 'TELEGRAM_BOT_TOKEN', 'RECIPIENT_EMAIL']
     
@@ -393,5 +396,5 @@ def fetch_matches():
     create_calendar_file(matches)
 
 if __name__ == "__main__":
-    load_env()
+    check_env()
     fetch_matches()
