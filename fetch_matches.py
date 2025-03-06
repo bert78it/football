@@ -92,6 +92,13 @@ async def schedule_match_notifications(match):
                 time_str = f"{minutes} minutes" if minutes != 60 else "1 hour"
                 await send_telegram_notification(match, time_str)
 
+async def schedule_notifications(matches):
+    """Schedule notifications for all matches"""
+    tasks = []
+    for match in matches:
+        tasks.append(schedule_match_notifications(match))
+    await asyncio.gather(*tasks)
+
 def get_matches_from_api_football():
     """Fetch matches from API-Football"""
     url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
@@ -361,7 +368,8 @@ def create_calendar_file(matches):
                 logging.error(f"Error adding event to Google Calendar: {str(e)}")
         
         # Schedule notifications for all matches
-        asyncio.run(asyncio.gather(*[schedule_match_notifications(match) for match in matches_for_notifications]))
+        if matches_for_notifications:
+            asyncio.run(schedule_notifications(matches_for_notifications))
         
         # Write ICS file
         with open('matches.ics', 'wb') as f:
