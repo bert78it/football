@@ -42,32 +42,59 @@ TELEGRAM_CHAT_ID = '5819014856'
 async def send_telegram_notification(match, time_until_match):
     """Send a notification about an upcoming match via Telegram"""
     try:
-        application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
+        bot = Bot(token=TELEGRAM_BOT_TOKEN)
         
         # Create a nicely formatted message
         emoji_map = {
+            # Major European Leagues
             'UEFA Champions League': '🏆',
+            'UEFA Europa League': '🌟',
+            'UEFA Europa Conference League': '🌍',
             'Premier League': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
             'Serie A': '🇮🇹',
             'La Liga': '🇪🇸',
             'Bundesliga': '🇩🇪',
             'Ligue 1': '🇫🇷',
+            'Eredivisie': '🇳🇱',
+            'Primeira Liga': '🇵🇹',
+            
+            # Domestic Cups
+            'FA Cup': '🏆󠁧󠁢󠁥󠁮󠁧󠁿',
+            'Coppa Italia': '🏆🇮🇹',
+            'Copa del Rey': '🏆🇪🇸',
+            'DFB Pokal': '🏆🇩🇪',
+            'Coupe de France': '🏆🇫🇷',
+            
+            # International
+            'FIFA World Cup': '🌍',
+            'UEFA Euro': '🇪🇺',
+            'Copa America': '🏆🌎',
+            'Africa Cup of Nations': '🌍',
+            'AFC Asian Cup': '🌏',
+            
+            # Club Competitions
+            'FIFA Club World Cup': '🌎',
+            'UEFA Super Cup': '🌟',
+            'Copa Libertadores': '🏆🌎',
+            'Copa Sudamericana': '⭐🌎',
+            'AFC Champions League': '🌟🌏'
         }
         
         competition_emoji = emoji_map.get(match.get('competition', ''), '⚽')
+        time_emoji = '⏰' if 'hour' in time_until_match else '⚡' if '10 minutes' in time_until_match else '⏳'
         
         message = f"""
-🚨 *Upcoming Match Alert!*
+{time_emoji} *Upcoming Match Alert!*
 {competition_emoji} *{match['home_team']} vs {match['away_team']}*
 
 ⏰ Starts in: {time_until_match}
 🏆 Competition: {match.get('competition', 'Unknown')}
 📅 Date: {match['date']}
 
-_Don't miss this exciting match!_ 🎮
+_Get ready for kickoff!_ 🎮
         """
         
-        await application.bot.send_message(
+        await bot.send_message(
             chat_id=TELEGRAM_CHAT_ID,
             text=message,
             parse_mode='Markdown'
