@@ -2,60 +2,46 @@ name: Daily Football Matches Calendar
 
 on:
   schedule:
-    # Run at 11:00 UTC (12:00 Rome time)
-    - cron: '0 11 * * *'
-  workflow_dispatch:  # Allow manual triggering
-    inputs:
-      reason:
-        description: 'Reason for manual workflow run'
-        required: false
-        default: 'Manual trigger'
+    - cron: '0 11 * * *'  # Run at 11:00 UTC daily
+  workflow_dispatch:  # Allow manual trigger
 
 jobs:
-  generate-calendar:
+  update_calendar:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0  # Fetch all history to ensure we have all files
+    - uses: actions/checkout@v2
     
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v2
       with:
-        python-version: '3.9'
-    
+        python-version: '3.11'
+        
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install --upgrade setuptools wheel
-        pip install requests==2.31.0
-        pip install python-dotenv==1.0.0
-        pip install google-auth-oauthlib==1.2.0
-        pip install google-auth-httplib2==0.2.0
-        pip install google-api-python-client==2.114.0
+        pip install python-telegram-bot==20.7
+        pip install google-api-python-client
+        pip install google-auth-httplib2
+        pip install google-auth-oauthlib
         pip install icalendar==5.0.11
+        pip install python-dotenv
         pip install pytz==2023.3
+        pip install requests
         pip install beautifulsoup4==4.12.2
-        pip install python-telegram-bot
     
-    - name: Set up Google Calendar credentials
+    - name: Set up environment
+      env:
+        GOOGLE_CALENDAR_TOKEN: ${{ secrets.GOOGLE_CALENDAR_TOKEN }}
+        API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       run: |
         mkdir -p credentials
-        echo "${{ secrets.GOOGLE_CALENDAR_CREDENTIALS }}" > credentials/credentials.json
-        echo "${{ secrets.GOOGLE_CALENDAR_TOKEN }}" > credentials/token.json
+        echo "$GOOGLE_CALENDAR_TOKEN" > credentials/token.json
+        echo "API_FOOTBALL_KEY=$API_FOOTBALL_KEY" > .env
+        echo "FOOTBALL_DATA_API_KEY=$FOOTBALL_DATA_API_KEY" >> .env
+        echo "TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN" >> .env
     
-    - name: Set up environment variables
-      run: |
-        echo "API_FOOTBALL_KEY=${{ secrets.API_FOOTBALL_KEY }}" >> $GITHUB_ENV
-        echo "FOOTBALL_DATA_API_KEY=${{ secrets.FOOTBALL_DATA_API_KEY }}" >> $GITHUB_ENV
-        echo "RECIPIENT_EMAIL=${{ secrets.RECIPIENT_EMAIL }}" >> $GITHUB_ENV
-        echo "TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}" >> $GITHUB_ENV
-    
-    - name: Run scripts
-      run: |
-        python fetch_matches.py
-        # Disabled email notifications as per user preference
-        # python send_calendar_email.py
+    - name: Run script
+      run: python fetch_matches.py
