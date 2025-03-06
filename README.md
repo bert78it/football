@@ -1,15 +1,18 @@
 # Football Matches Daily Calendar
 
 ## Overview
-Automatically fetches football matches from multiple sources and adds them to your Google Calendar with notifications.
+Automatically fetches football matches from multiple sources and adds them to your Google Calendar with Telegram notifications.
 
 ## Features
 - Fetches matches from Football-Data.org and API-Football
 - Automatically adds matches to Google Calendar
-- Multiple notifications (1 hour, 30 minutes, and 10 minutes before each match)
+- Multiple notification channels:
+  - Telegram notifications (1 hour, 30 minutes, and 10 minutes before matches)
+  - Google Calendar notifications
 - Color-coded events based on competition
 - 60-minute event duration for better calendar visualization
 - Runs daily via GitHub Actions
+- Beautiful emoji-enhanced notifications 🎮
 
 ## Setup
 
@@ -18,15 +21,28 @@ You need API keys from:
 - Football-Data.org
 - API-Football
 
-### 2. GitHub Repository Setup
+### 2. Telegram Bot Setup
+1. Create a new Telegram bot:
+   - Message [@BotFather](https://t.me/botfather) on Telegram
+   - Use the `/newbot` command and follow instructions
+   - Save your bot token (looks like `123456789:ABCdefGHIjklmNOPQrstUVwxyz`)
+
+2. Get your chat ID:
+   - Message your bot
+   - Visit `https://api.telegram.org/bot<YourBOTToken>/getUpdates`
+   - Look for `"chat":{"id":123456789}`
+
+### 3. GitHub Repository Setup
 1. Fork this repository
 2. Go to repository Settings > Secrets and variables > Actions
 3. Add the following repository secrets:
    - `FOOTBALL_DATA_API_KEY`: Your Football-Data.org API key
    - `API_FOOTBALL_KEY`: Your API-Football key
    - `GOOGLE_CALENDAR_TOKEN`: Your Google Calendar OAuth token (JSON format)
+   - `TELEGRAM_BOT_TOKEN`: Your Telegram bot token
+   - `TELEGRAM_CHAT_ID`: Your Telegram chat ID
 
-### 3. Google Calendar Integration
+### 4. Google Calendar Integration
 The script will automatically:
 - Add matches to your primary Google Calendar
 - Set notifications at 1 hour, 30 minutes, and 10 minutes before each match
@@ -36,12 +52,17 @@ The script will automatically:
 ## Automation
 - GitHub Actions workflow runs daily at 11:00 UTC
 - Fetches matches and adds them to your calendar automatically
+- Sends Telegram notifications for upcoming matches
 - No manual intervention needed once set up
 
 ## Troubleshooting
 - Check GitHub Actions logs for any errors
 - Verify all secrets are correctly set in GitHub
 - Ensure Google Calendar token is up to date
+- For Telegram issues:
+  - Check if your bot token is valid
+  - Ensure you've messaged your bot at least once
+  - Verify your chat ID is correct
 
 ## Development
 To run locally:
@@ -51,6 +72,8 @@ To run locally:
    ```
    FOOTBALL_DATA_API_KEY=your_key
    API_FOOTBALL_KEY=your_key
+   TELEGRAM_BOT_TOKEN=your_bot_token
+   TELEGRAM_CHAT_ID=your_chat_id
    ```
 4. Run: `python fetch_matches.py`
 
