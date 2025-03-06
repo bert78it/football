@@ -11,6 +11,8 @@ from googleapiclient.discovery import build
 from telegram import Bot
 import asyncio
 from dotenv import load_dotenv
+from telegram import Update
+from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
 
 # Enable logging
 logging.basicConfig(
@@ -40,7 +42,7 @@ TELEGRAM_CHAT_ID = '5819014856'
 async def send_telegram_notification(match, time_until_match):
     """Send a notification about an upcoming match via Telegram"""
     try:
-        bot = Bot(token=TELEGRAM_BOT_TOKEN)
+        application = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
         
         # Create a nicely formatted message
         emoji_map = {
@@ -65,7 +67,7 @@ async def send_telegram_notification(match, time_until_match):
 _Don't miss this exciting match!_ 🎮
         """
         
-        await bot.send_message(
+        await application.bot.send_message(
             chat_id=TELEGRAM_CHAT_ID,
             text=message,
             parse_mode='Markdown'
