@@ -36,12 +36,14 @@ jobs:
         API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       run: |
         mkdir -p credentials
         echo "$GOOGLE_CALENDAR_TOKEN" > credentials/token.json
         echo "API_FOOTBALL_KEY=$API_FOOTBALL_KEY" > .env
         echo "FOOTBALL_DATA_API_KEY=$FOOTBALL_DATA_API_KEY" >> .env
         echo "TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN" >> .env
+        echo "TELEGRAM_CHAT_ID=$TELEGRAM_CHAT_ID" >> .env
     
     - name: Run script
       run: python fetch_matches.py
