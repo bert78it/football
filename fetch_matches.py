@@ -3,28 +3,91 @@ import json
 import logging
 import requests
 from datetime import datetime, timezone, timedelta
+from icalendar import Calendar, Event, Alarm
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
-from icalendar import Calendar, Event, Alarm
-from dotenv import load_dotenv
-import pickle
+from telegram import Bot
+import asyncio
 
-# Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Enable logging
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+logger = logging.getLogger(__name__)
 
 # Load environment variables
-logging.info("Loading environment variables...")
-load_dotenv(verbose=True)
+def load_env():
+    """Load environment variables and check if they exist"""
+    logging.info("Loading environment variables...")
+    required_vars = ['API_FOOTBALL_KEY', 'FOOTBALL_DATA_API_KEY', 'TELEGRAM_BOT_TOKEN', 'RECIPIENT_EMAIL']
+    
+    for var in required_vars:
+        exists = os.getenv(var) is not None
+        logging.info(f"{var} present: {exists}")
+        if not exists and var != 'TELEGRAM_BOT_TOKEN':
+            raise Exception(f"Missing required environment variable: {var}")
 
-# Debug environment variables
-api_football_key = os.getenv('API_FOOTBALL_KEY')
-football_data_key = os.getenv('FOOTBALL_DATA_API_KEY')
-recipient_email = os.getenv('RECIPIENT_EMAIL')
-logging.info(f"API_FOOTBALL_KEY present: {bool(api_football_key)}")
-logging.info(f"FOOTBALL_DATA_API_KEY present: {bool(football_data_key)}")
-logging.info(f"RECIPIENT_EMAIL present: {bool(recipient_email)}")
+# Telegram notification settings
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '7847237197:AAHjarLdbbQRAYSTo-iw3iAf3wRT1UEThDw')
+TELEGRAM_CHAT_ID = '5819014856'
+
+async def send_telegram_notification(match, time_until_match):
+    """Send a notification about an upcoming match via Telegram"""
+    try:
+        bot = Bot(token=TELEGRAM_BOT_TOKEN)
+        
+        # Create a nicely formatted message
+        emoji_map = {
+            'UEFA Champions League': '🏆',
+            'Premier League': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+            'Serie A': '🇮🇹',
+            'La Liga': '🇪🇸',
+            'Bundesliga': '🇩🇪',
+            'Ligue 1': '🇫🇷',
+        }
+        
+        competition_emoji = emoji_map.get(match.get('competition', ''), '⚽')
+        
+        message = f"""
+🚨 *Upcoming Match Alert!*
+{competition_emoji} *{match['home_team']} vs {match['away_team']}*
+
+⏰ Starts in: {time_until_match}
+🏆 Competition: {match.get('competition', 'Unknown')}
+📅 Date: {match['date']}
+
+_Don't miss this exciting match!_ 🎮
+        """
+        
+        await bot.send_message(
+            chat_id=TELEGRAM_CHAT_ID,
+            text=message,
+            parse_mode='Markdown'
+        )
+        logging.info(f"Sent Telegram notification for match: {match['home_team']} vs {match['away_team']}")
+    except Exception as e:
+        logging.error(f"Error sending Telegram notification: {str(e)}")
+
+async def schedule_match_notifications(match):
+    """Schedule notifications for a match at different times"""
+    match_time = datetime.fromisoformat(match['date'].replace('Z', '+00:00'))
+    current_time = datetime.now(timezone.utc)
+    
+    # Notification times (in minutes before the match)
+    notification_times = [60, 30, 10]  # 1 hour, 30 minutes, 10 minutes before
+    
+    for minutes in notification_times:
+        notification_time = match_time - timedelta(minutes=minutes)
+        if notification_time > current_time:
+            # Calculate wait time
+            wait_seconds = (notification_time - current_time).total_seconds()
+            if wait_seconds > 0:
+                await asyncio.sleep(wait_seconds)
+                time_str = f"{minutes} minutes" if minutes != 60 else "1 hour"
+                await send_telegram_notification(match, time_str)
 
 def get_matches_from_api_football():
     """Fetch matches from API-Football"""
@@ -196,8 +259,8 @@ def create_calendar_file(matches):
     """Create an ICS calendar file with the matches and add to Google Calendar"""
     try:
         cal = Calendar()
-        cal.add('prodid', '-//Football Matches Calendar//novemberain78it@gmail.com//')
         cal.add('version', '2.0')
+        cal.add('prodid', '-//Football Matches Calendar//NONSGML v1.0//EN')
         cal.add('calscale', 'GREGORIAN')
         cal.add('method', 'PUBLISH')
         cal.add('x-wr-calname', 'Football Matches')
@@ -209,11 +272,17 @@ def create_calendar_file(matches):
         # Track unique events to avoid duplicates
         unique_events = set()
         
+        # Create a list to store matches for notification scheduling
+        matches_for_notifications = []
+        
         for match in matches:
             event_key = f"{match['home_team']} vs {match['away_team']} - {match['date']}"
             if event_key in unique_events:
                 continue
             unique_events.add(event_key)
+            
+            # Add match to notifications list
+            matches_for_notifications.append(match)
             
             # Create ICS event
             ics_event = Event()
@@ -288,6 +357,9 @@ def create_calendar_file(matches):
             except Exception as e:
                 logging.error(f"Error adding event to Google Calendar: {str(e)}")
         
+        # Schedule notifications for all matches
+        asyncio.run(asyncio.gather(*[schedule_match_notifications(match) for match in matches_for_notifications]))
+        
         # Write ICS file
         with open('matches.ics', 'wb') as f:
             f.write(cal.to_ical())
@@ -321,4 +393,5 @@ def fetch_matches():
     create_calendar_file(matches)
 
 if __name__ == "__main__":
+    load_env()
     fetch_matches()
