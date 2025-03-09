@@ -255,183 +255,49 @@ def get_matches_from_football_data():
         logging.error(f"Error fetching matches from Football-Data.org: {str(e)}")
         return []
 
-def get_google_calendar_service():
-    """Gets or creates Google Calendar API service"""
-    SCOPES = ['https://www.googleapis.com/auth/calendar.events']
-    creds = None
-
-    if os.path.exists('credentials/token.json'):
-        creds = Credentials.from_authorized_user_file('credentials/token.json', SCOPES)
-
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials/credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        
-        with open('credentials/token.json', 'w') as token:
-            token.write(creds.to_json())
-
-    return build('calendar', 'v3', credentials=creds)
-
-def get_calendar_color_id(competition):
-    """Get color ID based on competition"""
-    color_mapping = {
-        'Premier League': '11',  # Red
-        'Serie A': '9',         # Green
-        'Bundesliga': '5',      # Yellow
-        'La Liga': '3',         # Purple
-        'Ligue 1': '7',        # Blue
-        'Champions League': '1', # Dark Blue
-        'Europa League': '2',   # Dark Green
-    }
-    
-    # Try to match competition name with our mapping
-    for key in color_mapping:
-        if key.lower() in competition.lower():
-            return color_mapping[key]
-    return '8'  # Gray for other competitions
-
-def create_calendar_file(matches):
-    """Create an ICS calendar file with the matches and add to Google Calendar"""
-    try:
-        cal = Calendar()
-        cal.add('version', '2.0')
-        cal.add('prodid', '-//Football Matches Calendar//NONSGML v1.0//EN')
-        cal.add('calscale', 'GREGORIAN')
-        cal.add('method', 'PUBLISH')
-        cal.add('x-wr-calname', 'Football Matches')
-        cal.add('x-wr-timezone', 'Europe/Rome')
-        
-        # Get Google Calendar service
-        service = get_google_calendar_service()
-        
-        # Track unique events to avoid duplicates
-        unique_events = set()
-        
-        # Create a list to store matches for notification scheduling
-        matches_for_notifications = []
-        
-        for match in matches:
-            event_key = f"{match['home_team']} vs {match['away_team']} - {match['date']}"
-            if event_key in unique_events:
-                continue
-            unique_events.add(event_key)
-            
-            # Add match to notifications list
-            matches_for_notifications.append(match)
-            
-            # Create ICS event
-            ics_event = Event()
-            
-            # Format title to be more readable
-            title = f"⚽ {match['home_team']} vs {match['away_team']}"
-            ics_event.add('summary', title)
-            
-            # Parse the match date
-            start_time = datetime.fromisoformat(match['date'].replace('Z', '+00:00'))
-            # Set end time to 60 minutes after start (just to mark the start of the match)
-            end_time = start_time + timedelta(minutes=60)
-            
-            ics_event.add('dtstart', start_time)
-            ics_event.add('dtend', end_time)
-            
-            # Add notifications 30 minutes before the match
-            alarm_display = Alarm()
-            alarm_display.add('action', 'DISPLAY')
-            alarm_display.add('description', f"Upcoming match: {match['home_team']} vs {match['away_team']}")
-            alarm_display.add('trigger', timedelta(minutes=-30))
-            ics_event.add_component(alarm_display)
-
-            alarm_email = Alarm()
-            alarm_email.add('action', 'EMAIL')
-            alarm_email.add('description', f"Upcoming match: {match['home_team']} vs {match['away_team']}")
-            alarm_email.add('trigger', timedelta(minutes=-30))
-            alarm_email.add('summary', "Football Match Reminder")
-            alarm_email.add('attendee', f"mailto:{os.getenv('RECIPIENT_EMAIL')}")
-            ics_event.add_component(alarm_email)
-            
-            # Add actual match duration in the description
-            description = [
-                f"🏆 Competition: {match.get('competition', 'Unknown')}",
-                f"🏟️ Status: {match.get('status', 'Scheduled')}",
-                f"⚽ Full match duration: 105 minutes",
-                "",
-                "⏰ This event marks the match start time",
-                "📅 Calendar Event by Football Matches Daily"
-            ]
-            description_text = '\n'.join(description)
-            ics_event.add('description', description_text)
-            
-            cal.add_component(ics_event)
-            
-            # Create Google Calendar event with enhanced formatting
-            google_event = {
-                'summary': title,
-                'description': description_text,
-                'start': {
-                    'dateTime': start_time.isoformat(),
-                    'timeZone': 'Europe/Rome',
-                },
-                'end': {
-                    'dateTime': end_time.isoformat(),
-                    'timeZone': 'Europe/Rome',
-                },
-                'reminders': {
-                    'useDefault': False,
-                    'overrides': [
-                        {'method': 'popup', 'minutes': 60},  # 1 hour before
-                        {'method': 'popup', 'minutes': 30},  # 30 minutes before
-                        {'method': 'popup', 'minutes': 10},  # 10 minutes before
-                    ],
-                },
-                'colorId': get_calendar_color_id(match.get('competition', '')),
-            }
-            
-            try:
-                service.events().insert(calendarId='primary', body=google_event).execute()
-                logging.info(f"Added event to Google Calendar: {event_key}")
-            except Exception as e:
-                logging.error(f"Error adding event to Google Calendar: {str(e)}")
-        
-        # Schedule notifications for all matches
-        if matches_for_notifications:
-            asyncio.run(schedule_notifications(matches_for_notifications))
-        
-        # Write ICS file
-        with open('matches.ics', 'wb') as f:
-            f.write(cal.to_ical())
-        logging.info(f"Created calendar file with {len(unique_events)} unique events")
-        
-    except Exception as e:
-        logging.error(f"Error creating calendar file: {str(e)}")
-
-def fetch_matches():
+async def fetch_matches():
     """Fetch matches from both APIs and save to file"""
-    # Get matches from API-Football
-    matches = get_matches_from_api_football()
+    check_env()
     
-    if not matches:
+    matches = []
+    
+    # Try API-Football first
+    api_football_matches = get_matches_from_api_football()
+    if api_football_matches:
+        matches.extend(api_football_matches)
+        logging.info(f"Found {len(api_football_matches)} matches from API-Football")
+    else:
         logging.warning("No matches found from API-Football, trying Football-Data.org")
-        matches = get_matches_from_football_data()
+        
+        # Try Football-Data.org as backup
+        football_data_matches = get_matches_from_football_data()
+        if football_data_matches:
+            matches.extend(football_data_matches)
+            logging.info(f"Found {len(football_data_matches)} matches from Football-Data.org")
     
-    if not matches:
-        logging.warning("No matches found from any API")
-        matches = []
+    # Remove duplicates while preserving order
+    unique_matches = []
+    seen = set()
+    for match in matches:
+        key = (match['home_team'], match['away_team'], match['date'])
+        if key not in seen:
+            seen.add(key)
+            unique_matches.append(match)
     
-    # Log the number of matches found
-    logging.info(f"\nFound {len(matches)} total unique matches:")
+    logging.info(f"\nFound {len(unique_matches)} total unique matches:")
     
-    # Save matches to JSON file
+    # Save matches to file
     with open('matches.json', 'w', encoding='utf-8') as f:
-        json.dump(matches, f, ensure_ascii=False, indent=2)
+        json.dump(unique_matches, f, indent=2, ensure_ascii=False)
     logging.info("Saved matches to matches.json")
     
-    # Create calendar file
-    create_calendar_file(matches)
+    # Schedule notifications for matches
+    if unique_matches:
+        await schedule_notifications(unique_matches)
+        logging.info("Scheduled notifications for matches")
+    else:
+        logging.warning("No matches to schedule notifications for")
 
 if __name__ == "__main__":
     check_env()
-    fetch_matches()
+    asyncio.run(fetch_matches())
