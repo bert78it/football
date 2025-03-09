@@ -2,12 +2,14 @@ name: Daily Football Notifications
 
 on:
   schedule:
-    - cron: '0 5,11,17 * * *'  # Runs at 5:00, 11:00, and 17:00 UTC
+    - cron: '0 5,11,17 * * *'  # Runs at 6:00, 12:00, and 18:00 Rome time (UTC+1)
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
   send-notifications:
     runs-on: ubuntu-latest
+    env:
+      TZ: 'Europe/Rome'  # Set timezone to Rome
     
     steps:
     - uses: actions/checkout@v3
