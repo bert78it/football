@@ -3,11 +3,6 @@ import json
 import logging
 import requests
 from datetime import datetime, timezone, timedelta
-from icalendar import Calendar, Event, Alarm
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
-from googleapiclient.discovery import build
 from telegram import Bot
 import asyncio
 from dotenv import load_dotenv
