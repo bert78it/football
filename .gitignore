@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -21,35 +20,24 @@ wheels/
 .installed.cfg
 *.egg
 
-# Credentials and secrets
-credentials/
-credentials.json
-token.json
-client_secret*.json
+# Environment
 .env
-
-# Generated files
-*.ics
-matches.json
-tv_schedule.json
-football_matches_calendar.ics
+.venv
+env/
+venv/
+ENV/
 
 # IDE
-.vscode/
 .idea/
+.vscode/
 *.swp
 *.swo
 
 # Logs
 *.log
+logs/
+log/
 
-# Docker
-Dockerfile
-.docker/
-
-# Legacy and test files
-legacy/
-test_*.py
-health_check.py
-cleanup_calendar.py
-get_chat_id.py
+# Local development
+.DS_Store
+Thumbs.db
