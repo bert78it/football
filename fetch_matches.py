@@ -118,31 +118,16 @@ def get_matches_from_football_data():
 
     headers = {'X-Auth-Token': api_key}
     
-    # Get today's date in YYYY-MM-DD format
+    # Get today's date and tomorrow's date
     today = datetime.now().strftime("%Y-%m-%d")
-    
-    # List of competition IDs to fetch
-    competitions = [
-        2001,  # Champions League
-        2002,  # Bundesliga
-        2014,  # Primera Division
-        2015,  # Ligue 1
-        2019,  # Serie A
-        2021,  # Premier League
-        2146,  # Serie B
-        2001,  # Champions League
-        2018,  # European Championship
-        2000,  # FIFA World Cup
-        2152,  # Coppa Italia
-        2154   # FA Cup
-    ]
+    tomorrow = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
     
     all_matches = []
     
     try:
-        # Fetch matches for today
+        # Fetch matches for today and tomorrow
         url = f"https://api.football-data.org/v4/matches"
-        params = {'dateFrom': today, 'dateTo': today}
+        params = {'dateFrom': today, 'dateTo': tomorrow}
         response = requests.get(url, headers=headers, params=params)
         response.raise_for_status()
         data = response.json()
