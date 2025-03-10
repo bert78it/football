@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+from logging.handlers import RotatingFileHandler
 import requests
 from datetime import datetime, timezone, timedelta
 from telegram import Bot
@@ -10,9 +11,19 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
 
 # Enable logging
+log_file = 'football_notifications.log'
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
+    level=logging.INFO,
+    handlers=[
+        logging.StreamHandler(),  # Console output
+        RotatingFileHandler(
+            log_file,
+            maxBytes=1024*1024,  # 1MB
+            backupCount=5,
+            encoding='utf-8'
+        )
+    ]
 )
 logger = logging.getLogger(__name__)
 
