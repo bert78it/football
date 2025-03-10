@@ -22,7 +22,7 @@ load_dotenv()
 def check_env():
     """Check if required environment variables exist"""
     logging.info("Loading environment variables...")
-    required_vars = ['API_FOOTBALL_KEY', 'FOOTBALL_DATA_API_KEY', 'TELEGRAM_BOT_TOKEN', 'RECIPIENT_EMAIL']
+    required_vars = ['FOOTBALL_DATA_API_KEY', 'TELEGRAM_BOT_TOKEN', 'RECIPIENT_EMAIL']
     
     for var in required_vars:
         exists = os.getenv(var) is not None
@@ -31,7 +31,7 @@ def check_env():
             raise Exception(f"Missing required environment variable: {var}")
 
 # Telegram notification settings
-TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '7847237197:AAHjarLdbbQRAYSTo-iw3iAf3wRT1UEThDw')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = '5819014856'
 
 async def send_telegram_notification(match, time_until_match):
@@ -59,20 +59,6 @@ async def send_telegram_notification(match, time_until_match):
             'Copa del Rey': '🏆🇪🇸',
             'DFB Pokal': '🏆🇩🇪',
             'Coupe de France': '🏆🇫🇷',
-            
-            # International
-            'FIFA World Cup': '🌍',
-            'UEFA Euro': '🇪🇺',
-            'Copa America': '🏆🌎',
-            'Africa Cup of Nations': '🌍',
-            'AFC Asian Cup': '🌏',
-            
-            # Club Competitions
-            'FIFA Club World Cup': '🌎',
-            'UEFA Super Cup': '🌟',
-            'Copa Libertadores': '🏆🌎',
-            'Copa Sudamericana': '⭐🌎',
-            'AFC Champions League': '🌟🌏'
         }
         
         competition_emoji = emoji_map.get(match.get('competition', ''), '⚽')
@@ -123,175 +109,83 @@ async def schedule_notifications(matches):
         tasks.append(schedule_match_notifications(match))
     await asyncio.gather(*tasks)
 
-def get_matches_from_api_football():
-    """Fetch matches from API-Football"""
-    url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
-    api_key = os.getenv('API_FOOTBALL_KEY')
-    
-    if not api_key:
-        logging.warning("API-Football key not found in environment variables")
-        return []
-
-    headers = {
-        "X-RapidAPI-Key": api_key,
-        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
-    }
-
-    # Get today's date in YYYY-MM-DD format
-    today = datetime.now().strftime("%Y-%m-%d")
-    
-    # List of league IDs to fetch
-    leagues = [
-        135,  # Serie A
-        2,    # Champions League
-        3,    # Europa League
-        39,   # Premier League
-        140,  # La Liga
-        78,   # Bundesliga
-        61,   # Ligue 1
-        71,   # Serie B
-        848,  # Conference League
-        81    # Coppa Italia
-    ]
-    
-    all_matches = []
-    seen_matches = set()
-
-    for league in leagues:
-        try:
-            params = {
-                "date": today,
-                "league": str(league),
-                "timezone": "Europe/Rome"
-            }
-
-            response = requests.get(url, headers=headers, params=params)
-            if response.status_code == 401:
-                logging.error("API-Football error: Invalid API key")
-                return []
-            response.raise_for_status()
-            data = response.json()
-            
-            if not data.get('response'):
-                logging.info(f"No matches found for league {league}")
-                continue
-                
-            for fixture in data.get('response', []):
-                match_key = (
-                    fixture['teams']['home']['name'],
-                    fixture['teams']['away']['name'],
-                    fixture['fixture']['date']
-                )
-                
-                if match_key not in seen_matches:
-                    seen_matches.add(match_key)
-                    match = {
-                        'home_team': fixture['teams']['home']['name'],
-                        'away_team': fixture['teams']['away']['name'],
-                        'date': fixture['fixture']['date'],
-                        'venue': fixture['fixture']['venue']['name'] if fixture['fixture'].get('venue') else None,
-                        'status': fixture['fixture']['status']['long'],
-                        'source': 'API-Football',
-                        'competition': fixture['league']['name']
-                    }
-                    all_matches.append(match)
-            
-            # Add a small delay between requests to respect rate limits
-            import time
-            time.sleep(1)
-            
-        except Exception as e:
-            logging.error(f"Error fetching matches for league {league}: {e}")
-            continue
-    
-    logging.info(f"Found {len(all_matches)} matches from API-Football")
-    return all_matches
-
 def get_matches_from_football_data():
     """Fetch matches from Football-Data.org"""
     api_key = os.getenv('FOOTBALL_DATA_API_KEY')
     if not api_key:
-        logging.warning("Football-Data.org API key not found in environment variables")
+        logging.error("Football-Data.org API key not found")
         return []
 
     headers = {'X-Auth-Token': api_key}
-    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
-    url = f"http://api.football-data.org/v4/matches?date={today}"
-
+    
+    # Get today's date in YYYY-MM-DD format
+    today = datetime.now().strftime("%Y-%m-%d")
+    
+    # List of competition IDs to fetch
+    competitions = [
+        2001,  # Champions League
+        2002,  # Bundesliga
+        2014,  # Primera Division
+        2015,  # Ligue 1
+        2019,  # Serie A
+        2021,  # Premier League
+        2146,  # Serie B
+        2001,  # Champions League
+        2018,  # European Championship
+        2000,  # FIFA World Cup
+        2152,  # Coppa Italia
+        2154   # FA Cup
+    ]
+    
+    all_matches = []
+    
     try:
-        response = requests.get(url, headers=headers)
-        if response.status_code != 200:
-            logging.error(f"Error fetching matches from Football-Data.org: {response.status_code}")
-            return []
-
+        # Fetch matches for today
+        url = f"https://api.football-data.org/v4/matches"
+        params = {'dateFrom': today, 'dateTo': today}
+        response = requests.get(url, headers=headers, params=params)
+        response.raise_for_status()
         data = response.json()
-        matches = []
-        for match in data.get('matches', []):
-            # Skip matches without both teams
-            if not match.get('homeTeam', {}).get('name') or not match.get('awayTeam', {}).get('name'):
-                logging.warning(f"Skipping match with missing team(s): {match.get('homeTeam', {}).get('name', 'Unknown')} vs {match.get('awayTeam', {}).get('name', 'Unknown')}")
-                continue
-                
-            match_data = {
-                'home_team': match['homeTeam']['name'],
-                'away_team': match['awayTeam']['name'],
-                'date': match.get('utcDate'),
-                'venue': match.get('venue'),
-                'status': match.get('status'),
-                'source': 'Football-Data.org',
-                'competition': match.get('competition', {}).get('name', 'Unknown Competition')
-            }
-            matches.append(match_data)
-
-        logging.info(f"Found {len(matches)} matches from Football-Data.org")
-        return matches
-
-    except Exception as e:
+        
+        if 'matches' in data:
+            for match in data['matches']:
+                match_info = {
+                    'home_team': match['homeTeam']['name'],
+                    'away_team': match['awayTeam']['name'],
+                    'date': match['utcDate'],
+                    'competition': match['competition']['name'],
+                    'status': match['status'],
+                    'source': 'Football-Data.org'
+                }
+                all_matches.append(match_info)
+            
+            logging.info(f"Found {len(all_matches)} matches from Football-Data.org")
+        else:
+            logging.warning("No matches found in the response")
+            
+    except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching matches from Football-Data.org: {str(e)}")
-        return []
+    
+    return all_matches
 
 async def fetch_matches():
-    """Fetch matches from both APIs and save to file"""
-    check_env()
-    
-    matches = []
-    
-    # Try API-Football first
-    api_football_matches = get_matches_from_api_football()
-    if api_football_matches:
-        matches.extend(api_football_matches)
-        logging.info(f"Found {len(api_football_matches)} matches from API-Football")
-    else:
-        logging.warning("No matches found from API-Football, trying Football-Data.org")
+    """Main function to fetch matches and schedule notifications"""
+    try:
+        # Fetch matches from Football-Data.org
+        matches = get_matches_from_football_data()
+        logging.info(f"Found {len(matches)} total unique matches")
         
-        # Try Football-Data.org as backup
-        football_data_matches = get_matches_from_football_data()
-        if football_data_matches:
-            matches.extend(football_data_matches)
-            logging.info(f"Found {len(football_data_matches)} matches from Football-Data.org")
-    
-    # Remove duplicates while preserving order
-    unique_matches = []
-    seen = set()
-    for match in matches:
-        key = (match['home_team'], match['away_team'], match['date'])
-        if key not in seen:
-            seen.add(key)
-            unique_matches.append(match)
-    
-    logging.info(f"\nFound {len(unique_matches)} total unique matches:")
-    
-    # Save matches to file
-    with open('matches.json', 'w', encoding='utf-8') as f:
-        json.dump(unique_matches, f, indent=2, ensure_ascii=False)
-    logging.info("Saved matches to matches.json")
-    
-    # Schedule notifications for matches
-    if unique_matches:
-        await schedule_notifications(unique_matches)
+        # Save matches to file for reference
+        with open('matches.json', 'w', encoding='utf-8') as f:
+            json.dump(matches, f, ensure_ascii=False, indent=2)
+        logging.info("Saved matches to matches.json")
+        
+        # Schedule notifications for matches
         logging.info("Scheduled notifications for matches")
-    else:
-        logging.warning("No matches to schedule notifications for")
+        await schedule_notifications(matches)
+        
+    except Exception as e:
+        logging.error(f"Error in fetch_matches: {str(e)}")
 
 if __name__ == "__main__":
     check_env()

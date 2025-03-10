@@ -1,25 +1,24 @@
 # Football Match Notifications
 
 ## Overview
-Automatically fetches football matches from multiple sources and sends notifications via Telegram. Running entirely in the cloud via GitHub Actions, no local machine needed!
+Automatically fetches football matches from Football-Data.org and sends notifications via Telegram. Running entirely in the cloud via Railway.app, no local machine needed!
 
 ## Features
-- Fetches matches from Football-Data.org and API-Football
+- Fetches matches from Football-Data.org API
 - Smart Telegram notifications:
   - 1 hour before match
   - 30 minutes before match
   - 10 minutes before match
 - Beautiful emoji-enhanced notifications 🎮
-- Runs automatically in the cloud via GitHub Actions
+- Runs automatically in the cloud via Railway.app
 - Timezone-aware (configured for Rome time)
 - No need to keep your PC running
 
 ## Setup
 
-### 1. API Keys
-You need API keys from:
-- Football-Data.org
-- API-Football
+### 1. API Key
+You need an API key from:
+- [Football-Data.org](https://www.football-data.org/client/register)
 
 ### 2. Telegram Bot Setup
 1. Create a new Telegram bot:
@@ -32,17 +31,17 @@ You need API keys from:
    - Visit `https://api.telegram.org/bot<YourBOTToken>/getUpdates`
    - Look for `"chat":{"id":123456789}`
 
-### 3. GitHub Repository Setup
-1. Fork this repository
-2. Go to repository Settings > Secrets and variables > Actions
-3. Add the following repository secrets:
+### 3. Railway.app Setup
+1. Sign up at [Railway.app](https://railway.app) using your GitHub account
+2. Create a new project from your GitHub repository
+3. Add the following environment variables:
    - `FOOTBALL_DATA_API_KEY`: Your Football-Data.org API key
-   - `API_FOOTBALL_KEY`: Your API-Football key
    - `TELEGRAM_BOT_TOKEN`: Your Telegram bot token
    - `RECIPIENT_EMAIL`: Your email (for future features)
+   - `TZ`: `Europe/Rome`
 
 ## Automation
-The script runs automatically via GitHub Actions:
+The script runs automatically via Railway.app:
 - Three times daily (6:00, 12:00, and 18:00 Rome time)
 - Fetches upcoming matches
 - Sends Telegram notifications before each match
@@ -52,18 +51,31 @@ The script runs automatically via GitHub Actions:
 You'll receive beautifully formatted notifications like this:
 ```
 ⚡ Upcoming Match Alert!
-🇪🇸 Real Madrid vs Barcelona
+🇮🇹 Inter Milan vs AC Milan
 
 ⏰ Starts in: 30 minutes
-🏆 Competition: La Liga
-📅 Date: 2025-03-09 20:00
+🏆 Competition: Serie A
+📅 Date: 2025-03-10 20:00
 
 Get ready for kickoff! 🎮
 ```
 
+## Supported Competitions
+- UEFA Champions League 🏆
+- Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+- Serie A 🇮🇹
+- La Liga 🇪🇸
+- Bundesliga 🇩🇪
+- Ligue 1 🇫🇷
+- Serie B
+- European Championship
+- FIFA World Cup
+- Coppa Italia 🏆🇮🇹
+- FA Cup 🏆󠁧󠁢󠁥󠁮󠁧󠁿
+
 ## Troubleshooting
-- Check GitHub Actions logs for any errors
-- Verify all secrets are correctly set in GitHub
+- Check Railway.app logs for any errors
+- Verify all environment variables are set correctly
 - For Telegram issues:
   - Check if your bot token is valid
   - Ensure you've messaged your bot at least once
@@ -76,7 +88,6 @@ To run locally:
 3. Create a `.env` file with your API keys:
    ```
    FOOTBALL_DATA_API_KEY=your_key
-   API_FOOTBALL_KEY=your_key
    TELEGRAM_BOT_TOKEN=your_bot_token
    RECIPIENT_EMAIL=your_email
    ```
