@@ -1,3 +1,30 @@
+import os
+import requests
+
+# Verifica e stampa le variabili di ambiente
+telegram_chat_id = os.getenv('TELEGRAM_CHAT_ID')
+telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
+football_data_api_key = os.getenv('FOOTBALL_DATA_API_KEY')
+
+if not telegram_chat_id:
+    raise Exception("Missing required environment variable: TELEGRAM_CHAT_ID")
+if not telegram_bot_token:
+    raise Exception("Missing required environment variable: TELEGRAM_BOT_TOKEN")
+if not football_data_api_key:
+    raise Exception("Missing required environment variable: FOOTBALL_DATA_API_KEY")
+
+print("TELEGRAM_CHAT_ID:", telegram_chat_id)
+print("TELEGRAM_BOT_TOKEN:", telegram_bot_token)
+print("FOOTBALL_DATA_API_KEY:", football_data_api_key)
+
+# Esempio di richiesta all'API di Telegram
+telegram_api_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+params = {
+    "chat_id": telegram_chat_id,
+    "text": "Il calendario delle partite di oggi è pronto!"
+}
+response = requests.get(telegram_api_url, params=params)
+print(response.json())
 
 import os
 import requests
