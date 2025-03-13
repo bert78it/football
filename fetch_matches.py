@@ -9,6 +9,7 @@ import asyncio
 from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
+import time  # Import time module
 
 # Enable logging
 log_file = 'football_notifications.log'
@@ -33,7 +34,7 @@ load_dotenv()
 def check_env():
     """Check if required environment variables exist"""
     logging.info("Loading environment variables...")
-    required_vars = ['FOOTBALL_DATA_API_KEY', 'TELEGRAM_BOT_TOKEN', 'RECIPIENT_EMAIL']
+    required_vars = ['FOOTBALL_DATA_API_KEY', 'TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID', 'RECIPIENT_EMAIL']
     
     for var in required_vars:
         exists = os.getenv(var) is not None
@@ -43,7 +44,7 @@ def check_env():
 
 # Telegram notification settings
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-TELEGRAM_CHAT_ID = '5819014856'
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 async def send_telegram_notification(match, time_until_match):
     """Send a notification about an upcoming match via Telegram"""
@@ -56,7 +57,7 @@ async def send_telegram_notification(match, time_until_match):
             'UEFA Champions League': '🏆',
             'UEFA Europa League': '🌟',
             'UEFA Europa Conference League': '🌍',
-            'Premier League': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+            'Premier League': '🏴',
             'Serie A': '🇮🇹',
             'La Liga': '🇪🇸',
             'Bundesliga': '🇩🇪',
@@ -65,7 +66,7 @@ async def send_telegram_notification(match, time_until_match):
             'Primeira Liga': '🇵🇹',
             
             # Domestic Cups
-            'FA Cup': '🏆󠁧󠁢󠁥󠁮󠁧󠁿',
+            'FA Cup': '🏆',
             'Coppa Italia': '🏆🇮🇹',
             'Copa del Rey': '🏆🇪🇸',
             'DFB Pokal': '🏆🇩🇪',
@@ -139,25 +140,31 @@ def get_matches_from_football_data():
         # Fetch matches for today and tomorrow
         url = f"https://api.football-data.org/v4/matches"
         params = {'dateFrom': today, 'dateTo': tomorrow}
-        response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()
-        data = response.json()
         
-        if 'matches' in data:
-            for match in data['matches']:
-                match_info = {
-                    'home_team': match['homeTeam']['name'],
-                    'away_team': match['awayTeam']['name'],
-                    'date': match['utcDate'],
-                    'competition': match['competition']['name'],
-                    'status': match['status'],
-                    'source': 'Football-Data.org'
-                }
-                all_matches.append(match_info)
+        # Add rate limiting
+        for _ in range(10):  # Assuming you need to make 10 calls
+            response = requests.get(url, headers=headers, params=params)
+            response.raise_for_status()
+            data = response.json()
             
-            logging.info(f"Found {len(all_matches)} matches from Football-Data.org")
-        else:
-            logging.warning("No matches found in the response")
+            if 'matches' in data:
+                for match in data['matches']:
+                    match_info = {
+                        'home_team': match['homeTeam']['name'],
+                        'away_team': match['awayTeam']['name'],
+                        'date': match['utcDate'],
+                        'competition': match['competition']['name'],
+                        'status': match['status'],
+                        'source': 'Football-Data.org'
+                    }
+                    all_matches.append(match_info)
+                
+                logging.info(f"Found {len(all_matches)} matches from Football-Data.org")
+            else:
+                logging.warning("No matches found in the response")
+            
+            # Respect rate limit
+            time.sleep(6)  # Sleep for 6 seconds to ensure 10 calls per minute
             
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching matches from Football-Data.org: {str(e)}")
