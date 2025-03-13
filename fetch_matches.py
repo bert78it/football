@@ -1,3 +1,13 @@
+
+import os
+import requests
+
+# Stampa i valori delle variabili di ambiente
+print("TELEGRAM_CHAT_ID:", os.getenv('TELEGRAM_CHAT_ID'))
+print("TELEGRAM_BOT_TOKEN:", os.getenv('TELEGRAM_BOT_TOKEN'))
+print("FOOTBALL_DATA_API_KEY:", os.getenv('FOOTBALL_DATA_API_KEY'))
+
+# Codice esistente...
 import os
 import json
 import logging
