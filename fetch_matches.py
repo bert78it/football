@@ -1,13 +1,15 @@
 import logging
 import requests
+import os
 
 def send_telegram_message(message: str) -> None:
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message}
+    telegram_bot_token = ''.join(filter(lambda x: x.isprintable(), os.getenv('TELEGRAM_BOT_TOKEN').strip()))
+    url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+    payload = {"chat_id": os.getenv('TELEGRAM_CHAT_ID').strip(), "text": message}
 
     try:
         response = requests.post(url, json=payload)
-        logging.info(f"Request URL: {url}")
+        logging.info(f"Constructed URL: {url}")
         logging.info(f"Payload: {payload}")
         logging.info(f"Response Code: {response.status_code}")
         logging.info(f"Response Text: {response.text}")
@@ -18,13 +20,10 @@ def send_telegram_message(message: str) -> None:
     except requests.exceptions.RequestException as e:
         logging.error(f"Exception during Telegram API call: {e}")
 
-import os
-import requests
-
 # Verifica e stampa le variabili di ambiente
-telegram_chat_id = os.getenv('TELEGRAM_CHAT_ID')
-telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
-football_data_api_key = os.getenv('FOOTBALL_DATA_API_KEY')
+telegram_chat_id = ''.join(filter(lambda x: x.isprintable(), os.getenv('TELEGRAM_CHAT_ID').strip()))
+telegram_bot_token = ''.join(filter(lambda x: x.isprintable(), os.getenv('TELEGRAM_BOT_TOKEN').strip()))
+football_data_api_key = ''.join(filter(lambda x: x.isprintable(), os.getenv('FOOTBALL_DATA_API_KEY').strip()))
 
 if not telegram_chat_id:
     raise Exception("Missing required environment variable: TELEGRAM_CHAT_ID")
@@ -32,6 +31,11 @@ if not telegram_bot_token:
     raise Exception("Missing required environment variable: TELEGRAM_BOT_TOKEN")
 if not football_data_api_key:
     raise Exception("Missing required environment variable: FOOTBALL_DATA_API_KEY")
+
+print("TELEGRAM_CHAT_ID:", telegram_chat_id)
+print("TELEGRAM_BOT_TOKEN:", telegram_bot_token)
+print("FOOTBALL_DATA_API_KEY:", football_data_api_key)
+
 
 print("TELEGRAM_CHAT_ID:", telegram_chat_id)
 print("TELEGRAM_BOT_TOKEN:", telegram_bot_token)
