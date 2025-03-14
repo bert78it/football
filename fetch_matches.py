@@ -2,10 +2,14 @@ import logging
 import requests
 import os
 
+# Funzione per sanitizzare le variabili
+def sanitize_env_var(env_var: str) -> str:
+    return ''.join(filter(lambda x: x.isprintable(), env_var)).strip()
+
 def send_telegram_message(message: str) -> None:
-    telegram_bot_token = ''.join(filter(lambda x: x.isprintable(), os.getenv('TELEGRAM_BOT_TOKEN').strip()))
+    telegram_bot_token = sanitize_env_var(os.getenv('TELEGRAM_BOT_TOKEN'))
     url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
-    payload = {"chat_id": os.getenv('TELEGRAM_CHAT_ID').strip(), "text": message}
+    payload = {"chat_id": sanitize_env_var(os.getenv('TELEGRAM_CHAT_ID')), "text": message}
 
     try:
         response = requests.post(url, json=payload)
@@ -21,9 +25,13 @@ def send_telegram_message(message: str) -> None:
         logging.error(f"Exception during Telegram API call: {e}")
 
 # Verifica e stampa le variabili di ambiente
-telegram_chat_id = ''.join(filter(lambda x: x.isprintable(), os.getenv('TELEGRAM_CHAT_ID').strip()))
-telegram_bot_token = ''.join(filter(lambda x: x.isprintable(), os.getenv('TELEGRAM_BOT_TOKEN').strip()))
-football_data_api_key = ''.join(filter(lambda x: x.isprintable(), os.getenv('FOOTBALL_DATA_API_KEY').strip()))
+telegram_chat_id = sanitize_env_var(os.getenv('TELEGRAM_CHAT_ID'))
+telegram_bot_token = sanitize_env_var(os.getenv('TELEGRAM_BOT_TOKEN'))
+football_data_api_key = sanitize_env_var(os.getenv('FOOTBALL_DATA_API_KEY'))
+
+logging.info("Sanitized TELEGRAM_CHAT_ID: %s", telegram_chat_id)
+logging.info("Sanitized TELEGRAM_BOT_TOKEN: %s", telegram_bot_token)
+logging.info("Sanitized FOOTBALL_DATA_API_KEY: %s", football_data_api_key)
 
 if not telegram_chat_id:
     raise Exception("Missing required environment variable: TELEGRAM_CHAT_ID")
@@ -32,9 +40,10 @@ if not telegram_bot_token:
 if not football_data_api_key:
     raise Exception("Missing required environment variable: FOOTBALL_DATA_API_KEY")
 
-print("TELEGRAM_CHAT_ID:", telegram_chat_id)
-print("TELEGRAM_BOT_TOKEN:", telegram_bot_token)
-print("FOOTBALL_DATA_API_KEY:", football_data_api_key)
+print("Sanitized TELEGRAM_CHAT_ID:", telegram_chat_id)
+print("Sanitized TELEGRAM_BOT_TOKEN:", telegram_bot_token)
+print("Sanitized FOOTBALL_DATA_API_KEY:", football_data_api_key)
+
 
 
 print("TELEGRAM_CHAT_ID:", telegram_chat_id)
