@@ -1,3 +1,10 @@
+import os
+
+telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
+
+# Stampa il valore con `repr` per evidenziare eventuali caratteri non visibili
+print(f"Valore originale del token: {repr(telegram_bot_token)}")
+
 import logging
 import requests
 import os
