@@ -1,3 +1,95 @@
+import os
+
+def sanitize_env_var(value):
+    """Sanitizza una variabile rimuovendo spazi e newline"""
+    return value.strip() if value else value
+
+def load_and_sanitize_env_vars():
+    """Carica e sanitizza tutte le variabili d'ambiente richieste"""
+    env_vars = {
+        "TELEGRAM_BOT_TOKEN": sanitize_env_var(os.getenv('TELEGRAM_BOT_TOKEN')),
+        "TELEGRAM_CHAT_ID": sanitize_env_var(os.getenv('TELEGRAM_CHAT_ID')),
+        "FOOTBALL_DATA_API_KEY": sanitize_env_var(os.getenv('FOOTBALL_DATA_API_KEY')),
+    }
+    # Log per debug (assicurati di rimuovere in produzione!)
+    for key, value in env_vars.items():
+        print(f"Sanitized {key}: {repr(value)}")
+    return env_vars
+
+# Esempio di utilizzo
+env_vars = load_and_sanitize_env_vars()
+telegram_bot_token = env_vars["TELEGRAM_BOT_TOKEN"]
+telegram_chat_id = env_vars["TELEGRAM_CHAT_ID"]
+football_data_api_key = env_vars["FOOTBALL_DATA_API_KEY"]
+
+
+import os
+
+telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
+
+# Stampa il valore con `repr` per evidenziare eventuali caratteri non visibili
+print(f"Valore originale del token: {repr(telegram_bot_token)}")
+
+import logging
+import requests
+import os
+
+# Funzione per sanitizzare le variabili
+def sanitize_env_var(env_var: str) -> str:
+    return ''.join(filter(lambda x: x.isprintable(), env_var)).strip()
+
+def send_telegram_message(message: str) -> None:
+    telegram_bot_token = sanitize_env_var(os.getenv('TELEGRAM_BOT_TOKEN'))
+    url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+    payload = {"chat_id": sanitize_env_var(os.getenv('TELEGRAM_CHAT_ID')), "text": message}
+
+    try:
+        response = requests.post(url, json=payload)
+        logging.info(f"Constructed URL: {url}")
+        logging.info(f"Payload: {payload}")
+        logging.info(f"Response Code: {response.status_code}")
+        logging.info(f"Response Text: {response.text}")
+
+        if response.status_code != 200:
+            logging.error(f"Failed to send message: {response.status_code} - {response.text}")
+
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Exception during Telegram API call: {e}")
+
+# Verifica e stampa le variabili di ambiente
+telegram_chat_id = sanitize_env_var(os.getenv('TELEGRAM_CHAT_ID'))
+telegram_bot_token = sanitize_env_var(os.getenv('TELEGRAM_BOT_TOKEN'))
+football_data_api_key = sanitize_env_var(os.getenv('FOOTBALL_DATA_API_KEY'))
+
+logging.info("Sanitized TELEGRAM_CHAT_ID: %s", telegram_chat_id)
+logging.info("Sanitized TELEGRAM_BOT_TOKEN: %s", telegram_bot_token)
+logging.info("Sanitized FOOTBALL_DATA_API_KEY: %s", football_data_api_key)
+
+if not telegram_chat_id:
+    raise Exception("Missing required environment variable: TELEGRAM_CHAT_ID")
+if not telegram_bot_token:
+    raise Exception("Missing required environment variable: TELEGRAM_BOT_TOKEN")
+if not football_data_api_key:
+    raise Exception("Missing required environment variable: FOOTBALL_DATA_API_KEY")
+
+print("Sanitized TELEGRAM_CHAT_ID:", telegram_chat_id)
+print("Sanitized TELEGRAM_BOT_TOKEN:", telegram_bot_token)
+print("Sanitized FOOTBALL_DATA_API_KEY:", football_data_api_key)
+
+
+
+print("TELEGRAM_CHAT_ID:", telegram_chat_id)
+print("TELEGRAM_BOT_TOKEN:", telegram_bot_token)
+print("FOOTBALL_DATA_API_KEY:", football_data_api_key)
+
+# Esempio di richiesta all'API di Telegram
+telegram_api_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+params = {
+    "chat_id": telegram_chat_id,
+    "text": "Il calendario delle partite di oggi è pronto!"
+}
+response = requests.get(telegram_api_url, params=params)
+print(response.json())
 
 import os
 import requests
