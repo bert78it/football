@@ -1,0 +1,3242 @@
+[
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-15T20:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-15T20:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-15T20:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Arouca",
+    "away_team": "GD Estoril Praia",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Rio Ave FC",
+    "away_team": "Sport Lisboa e Benfica",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Vitória SC",
+    "away_team": "CF Estrela da Amadora",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Moreirense FC",
+    "away_team": "Boavista FC",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "CD Nacional",
+    "away_team": "Casa Pia AC",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Vitória SC",
+    "away_team": "CF Estrela da Amadora",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Arouca",
+    "away_team": "GD Estoril Praia",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Rio Ave FC",
+    "away_team": "Sport Lisboa e Benfica",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Moreirense FC",
+    "away_team": "Boavista FC",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "CD Nacional",
+    "away_team": "Casa Pia AC",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-15T20:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-15T20:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-15T20:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Vitória SC",
+    "away_team": "CF Estrela da Amadora",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Arouca",
+    "away_team": "GD Estoril Praia",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Rio Ave FC",
+    "away_team": "Sport Lisboa e Benfica",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Moreirense FC",
+    "away_team": "Boavista FC",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "CD Nacional",
+    "away_team": "Casa Pia AC",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-16T00:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Millwall FC",
+    "away_team": "Stoke City FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Queens Park Rangers FC",
+    "away_team": "Leeds United FC",
+    "date": "2025-03-15T12:30:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Real Valladolid CF",
+    "away_team": "RC Celta de Vigo",
+    "date": "2025-03-15T13:00:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Monza",
+    "away_team": "Parma Calcio 1913",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Udinese Calcio",
+    "away_team": "Hellas Verona FC",
+    "date": "2025-03-15T14:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "FC Bayern München",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "SC Freiburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SV Werder Bremen",
+    "away_team": "Borussia Mönchengladbach",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "VfL Wolfsburg",
+    "date": "2025-03-15T14:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Plymouth Argyle FC",
+    "away_team": "Derby County FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Sunderland AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "West Bromwich Albion FC",
+    "away_team": "Hull City AFC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Nottingham Forest FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Southampton FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Blackburn Rovers FC",
+    "away_team": "Cardiff City FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Luton Town FC",
+    "away_team": "Middlesbrough FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Oxford United FC",
+    "away_team": "Watford FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Preston North End FC",
+    "away_team": "Portsmouth FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Swansea City AFC",
+    "away_team": "Burnley FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Championship",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Everton FC",
+    "away_team": "West Ham United FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Brighton & Hove Albion FC",
+    "date": "2025-03-15T15:00:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "RCD Espanyol de Barcelona",
+    "date": "2025-03-15T15:15:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Gil Vicente FC",
+    "away_team": "CD Santa Clara",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Farense",
+    "away_team": "Sporting Clube de Braga",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Utrecht",
+    "away_team": "NEC",
+    "date": "2025-03-15T15:30:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Nantes",
+    "away_team": "Lille OSC",
+    "date": "2025-03-15T16:00:00Z",
+    "competition": "Ligue 1",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Como 1907",
+    "date": "2025-03-15T17:00:00Z",
+    "competition": "Serie A",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Brentford FC",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Premier League",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Borussia Dortmund",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Bundesliga",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Real Madrid CF",
+    "date": "2025-03-15T17:30:00Z",
+    "competition": "Primera Division",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sparta Rotterdam",
+    "away_team": "PEC Zwolle",
+    "date": "2025-03-15T17:45:00Z",
+    "competition": "Eredivisie",
+    "status": "FINISHED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Angers SCO",
+    "away_team": "AS Monaco FC",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Ligue 1",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "FC Porto",
+    "away_team": "AVS",
+    "date": "2025-03-15T18:00:00Z",
+    "competition": "Primeira Liga",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "RKC Waalwijk",
+    "away_team": "PSV",
+    "date": "2025-03-15T19:00:00Z",
+    "competition": "Eredivisie",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Empoli FC",
+    "date": "2025-03-15T19:45:00Z",
+    "competition": "Serie A",
+    "status": "IN_PLAY",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Valencia CF",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Primera Division",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "SC Heerenveen",
+    "away_team": "Heracles Almelo",
+    "date": "2025-03-15T20:00:00Z",
+    "competition": "Eredivisie",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Stade Rennais FC 1901",
+    "date": "2025-03-15T20:05:00Z",
+    "competition": "Ligue 1",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  },
+  {
+    "home_team": "Sporting Clube de Portugal",
+    "away_team": "FC Famalicão",
+    "date": "2025-03-15T20:30:00Z",
+    "competition": "Primeira Liga",
+    "status": "TIMED",
+    "source": "Football-Data.org"
+  }
+]

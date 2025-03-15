@@ -16,6 +16,17 @@ def load_and_sanitize_env_vars():
         print(f"Sanitized {key}: {repr(value)}")
     return env_vars
 
+from dotenv import load_dotenv
+import os
+
+# Carica il file .env
+load_dotenv()
+
+# Stampa per verificare le variabili
+print("TELEGRAM_BOT_TOKEN:", repr(os.getenv('TELEGRAM_BOT_TOKEN')))
+print("TELEGRAM_CHAT_ID:", repr(os.getenv('TELEGRAM_CHAT_ID')))
+print("FOOTBALL_DATA_API_KEY:", repr(os.getenv('FOOTBALL_DATA_API_KEY')))
+
 # Esempio di utilizzo
 env_vars = load_and_sanitize_env_vars()
 telegram_bot_token = env_vars["TELEGRAM_BOT_TOKEN"]
