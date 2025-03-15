@@ -1,5 +1,30 @@
 import os
 
+def sanitize_env_var(value):
+    """Sanitizza una variabile rimuovendo spazi e newline"""
+    return value.strip() if value else value
+
+def load_and_sanitize_env_vars():
+    """Carica e sanitizza tutte le variabili d'ambiente richieste"""
+    env_vars = {
+        "TELEGRAM_BOT_TOKEN": sanitize_env_var(os.getenv('TELEGRAM_BOT_TOKEN')),
+        "TELEGRAM_CHAT_ID": sanitize_env_var(os.getenv('TELEGRAM_CHAT_ID')),
+        "FOOTBALL_DATA_API_KEY": sanitize_env_var(os.getenv('FOOTBALL_DATA_API_KEY')),
+    }
+    # Log per debug (assicurati di rimuovere in produzione!)
+    for key, value in env_vars.items():
+        print(f"Sanitized {key}: {repr(value)}")
+    return env_vars
+
+# Esempio di utilizzo
+env_vars = load_and_sanitize_env_vars()
+telegram_bot_token = env_vars["TELEGRAM_BOT_TOKEN"]
+telegram_chat_id = env_vars["TELEGRAM_CHAT_ID"]
+football_data_api_key = env_vars["FOOTBALL_DATA_API_KEY"]
+
+
+import os
+
 telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
 
 # Stampa il valore con `repr` per evidenziare eventuali caratteri non visibili
