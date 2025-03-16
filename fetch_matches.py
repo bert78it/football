@@ -76,7 +76,8 @@ print("Sanitized FOOTBALL_DATA_API_KEY:", football_data_api_key)
 
 # Esempio di richiesta all'API di Telegram
 telegram_api_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
-print(f"URL sanitizzato: {repr(url)}")
+print(f"URL sanitizzato: {repr(telegram_api_url)}")
+
 
 params = {
     "chat_id": telegram_chat_id,
