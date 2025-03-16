@@ -14,20 +14,6 @@ def sanitize_env_var(env_var: str) -> str:
     )
 
 
-# Funzione per caricare e sanitizzare le variabili d'ambiente
-def load_and_sanitize_env_vars():
-    """Carica e sanitizza tutte le variabili d'ambiente richieste."""
-    env_vars = {
-        "TELEGRAM_BOT_TOKEN": sanitize_env_var(os.getenv("TELEGRAM_BOT_TOKEN")),
-        "TELEGRAM_CHAT_ID": sanitize_env_var(os.getenv("TELEGRAM_CHAT_ID")),
-        "FOOTBALL_DATA_API_KEY": sanitize_env_var(os.getenv("FOOTBALL_DATA_API_KEY")),
-    }
-    # Log per debug (assicurati di rimuovere in produzione!)
-    for key, value in env_vars.items():
-        print(f"Sanitized {key}: {repr(value)}")
-    return env_vars
-
-
 # Funzione per inviare un messaggio via Telegram
 def send_telegram_message(message: str) -> None:
     telegram_bot_token = sanitize_env_var(os.getenv("TELEGRAM_BOT_TOKEN"))
@@ -48,40 +34,39 @@ def send_telegram_message(message: str) -> None:
         logging.error(f"Exception during Telegram API call: {e}")
 
 
-# Carica il file .env
-load_dotenv()
-
-# Stampa per verificare le variabili d'ambiente
-print("TELEGRAM_BOT_TOKEN:", repr(os.getenv("TELEGRAM_BOT_TOKEN")))
-print("TELEGRAM_CHAT_ID:", repr(os.getenv("TELEGRAM_CHAT_ID")))
-print("FOOTBALL_DATA_API_KEY:", repr(os.getenv("FOOTBALL_DATA_API_KEY")))
-
-# Esempio di utilizzo
-env_vars = load_and_sanitize_env_vars()
-telegram_bot_token = env_vars["TELEGRAM_BOT_TOKEN"]
-telegram_chat_id = env_vars["TELEGRAM_CHAT_ID"]
-football_data_api_key = env_vars["FOOTBALL_DATA_API_KEY"]
-
-# Verifica e gestione delle eccezioni per le variabili mancanti
-if not telegram_chat_id:
-    raise Exception("Missing required environment variable: TELEGRAM_CHAT_ID")
-if not telegram_bot_token:
-    raise Exception("Missing required environment variable: TELEGRAM_BOT_TOKEN")
-if not football_data_api_key:
-    raise Exception("Missing required environment variable: FOOTBALL_DATA_API_KEY")
-
-print("Sanitized TELEGRAM_CHAT_ID:", telegram_chat_id)
-print("Sanitized TELEGRAM_BOT_TOKEN:", telegram_bot_token)
-print("Sanitized FOOTBALL_DATA_API_KEY:", football_data_api_key)
-
-# Esempio di richiesta all'API di Telegram
-telegram_api_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
-print(f"URL sanitizzato: {repr(telegram_api_url)}")
+# Simula un controllo del calendario
+def get_calendar_events():
+    # Puoi sostituire questa funzione con una logica reale per recuperare eventi dal calendario.
+    # Qui, restituiremo una lista vuota per simulare "nessun evento".
+    return []
 
 
-params = {
-    "chat_id": telegram_chat_id,
-    "text": "Il calendario delle partite di oggi è pronto!",
-}
-response = requests.get(telegram_api_url, params=params)
-print(response.json())
+# Funzione principale per verificare l'ora e inviare il messaggio
+def main():
+    # Imposta il fuso orario di Roma
+    rome_tz = timezone(timedelta(hours=1))
+    current_time = datetime.now(rome_tz)
+
+    # Controlla se è mezzogiorno
+    if current_time.hour == 12 and current_time.minute == 0:
+        calendar_events = get_calendar_events()
+        if calendar_events:
+            # Costruisce un messaggio con gli eventi del calendario
+            message = "Ecco il calendario di oggi:\n" + "\n".join(calendar_events)
+        else:
+            # Messaggio per indicare che non ci sono eventi
+            message = "Non ci sono eventi calendarizzati per oggi."
+        send_telegram_message(message)
+    else:
+        print("Non è l'ora prevista per l'invio.")
+
+
+if __name__ == "__main__":
+    # Configura i log
+    logging.basicConfig(level=logging.INFO)
+
+    # Carica le variabili d'ambiente
+    load_dotenv()
+
+    # Esegue lo script
+    main()
