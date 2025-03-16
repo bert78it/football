@@ -2,13 +2,18 @@ import os
 
 def sanitize_env_var(value):
     """Sanitizza una variabile rimuovendo spazi e newline"""
-    return value.strip() if value else value
+    def sanitize_env_var(env_var: str) -> str:
+    return ''.join(filter(lambda x: x.isprintable() and x != '\n', env_var)).strip() if env_var else ''
+
 
 def load_and_sanitize_env_vars():
     """Carica e sanitizza tutte le variabili d'ambiente richieste"""
     env_vars = {
-        "TELEGRAM_BOT_TOKEN": sanitize_env_var(os.getenv('TELEGRAM_BOT_TOKEN')),
-        "TELEGRAM_CHAT_ID": sanitize_env_var(os.getenv('TELEGRAM_CHAT_ID')),
+        telegram_bot_token = sanitize_env_var(os.getenv('TELEGRAM_BOT_TOKEN'))
+        telegram_chat_id = sanitize_env_var(os.getenv('TELEGRAM_CHAT_ID'))print(f"Sanitized TELEGRAM_BOT_TOKEN: {repr(telegram_bot_token)}")
+print(f"Sanitized TELEGRAM_CHAT_ID: {repr(telegram_chat_id)}")
+
+
         "FOOTBALL_DATA_API_KEY": sanitize_env_var(os.getenv('FOOTBALL_DATA_API_KEY')),
     }
     # Log per debug (assicurati di rimuovere in produzione!)
@@ -76,6 +81,8 @@ logging.info("Sanitized TELEGRAM_CHAT_ID: %s", telegram_chat_id)
 logging.info("Sanitized TELEGRAM_BOT_TOKEN: %s", telegram_bot_token)
 logging.info("Sanitized FOOTBALL_DATA_API_KEY: %s", football_data_api_key)
 
+
+
 if not telegram_chat_id:
     raise Exception("Missing required environment variable: TELEGRAM_CHAT_ID")
 if not telegram_bot_token:
@@ -95,6 +102,8 @@ print("FOOTBALL_DATA_API_KEY:", football_data_api_key)
 
 # Esempio di richiesta all'API di Telegram
 telegram_api_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+print(f"URL sanitizzato: {repr(url)}")
+
 params = {
     "chat_id": telegram_chat_id,
     "text": "Il calendario delle partite di oggi è pronto!"
@@ -109,6 +118,12 @@ import requests
 print("TELEGRAM_CHAT_ID:", os.getenv('TELEGRAM_CHAT_ID'))
 print("TELEGRAM_BOT_TOKEN:", os.getenv('TELEGRAM_BOT_TOKEN'))
 print("FOOTBALL_DATA_API_KEY:", os.getenv('FOOTBALL_DATA_API_KEY'))
+print(f"Sanitized TELEGRAM_BOT_TOKEN: {repr(telegram_bot_token)}")
+print(f"Sanitized TELEGRAM_CHAT_ID: {repr(telegram_chat_id)}")
+print(f"Original TELEGRAM_BOT_TOKEN: {repr(os.getenv('TELEGRAM_BOT_TOKEN'))}")
+print(f"Original TELEGRAM_CHAT_ID: {repr(os.getenv('TELEGRAM_CHAT_ID'))}")
+
+
 
 # Codice esistente...
 import os
