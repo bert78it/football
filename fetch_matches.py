@@ -2,7 +2,7 @@ import os
 import logging
 import requests
 from dotenv import load_dotenv
-from datetime import datetime, timezone
+from datetime import datetime
 from zoneinfo import ZoneInfo
 
 # Funzione per sanitizzare una variabile d'ambiente
@@ -57,9 +57,6 @@ def get_calendar_events():
 
 # Funzione principale per verificare l'ora e inviare il messaggio
 def main():
-    from datetime import datetime
-from zoneinfo import ZoneInfo
-import logging
     # Imposta il fuso orario di Roma
     rome_tz = ZoneInfo("Europe/Rome")
     current_time = datetime.now(rome_tz)
@@ -67,8 +64,14 @@ import logging
 
     # Controlla se è mezzogiorno
     if current_time.hour == 12 and current_time.minute == 0:
-        # Il resto del tuo codice per inviare il messaggio...
-    pass
+        calendar_events = get_calendar_events()
+        if calendar_events:
+            # Costruisce un messaggio con gli eventi del calendario
+            message = "Ecco il calendario di oggi:\n" + "\n".join(calendar_events)
+        else:
+            # Messaggio per indicare che non ci sono eventi
+            message = "Non ci sono eventi calendarizzati per oggi."
+        send_telegram_message(message)
     else:
         logging.info("Non è l'ora prevista per l'invio.")
 
