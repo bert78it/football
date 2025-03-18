@@ -2,7 +2,7 @@ import os
 import logging
 import requests
 from dotenv import load_dotenv
-from datetime import datetime
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
 # Funzione per sanitizzare una variabile d'ambiente
@@ -60,7 +60,6 @@ def main():
     # Imposta il fuso orario di Roma
     rome_tz = ZoneInfo("Europe/Rome")
     current_time = datetime.now(rome_tz)
-    logging.info(f"Ora corrente: {current_time.isoformat()}")
 
     # Controlla se è mezzogiorno
     if current_time.hour == 12 and current_time.minute == 0:
