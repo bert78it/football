@@ -2,7 +2,7 @@ import os
 import logging
 import requests
 from dotenv import load_dotenv
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 # Funzione per sanitizzare una variabile d'ambiente
@@ -32,34 +32,48 @@ def send_telegram_message(message: str) -> None:
     except requests.exceptions.RequestException as e:
         logging.error(f"Exception during Telegram API call: {e}")
 
-# Funzione per recuperare eventi dalle API di FootballData.org
-def get_calendar_events():
-    api_key = sanitize_env_var(os.getenv("FOOTBALLDATA_API_KEY"))
-    headers = {"X-Auth-Token": api_key}
-    url = "https://api.football-data.org/v4/matches"
+# Funzione per eliminare notifiche di Telegram più vecchie di 24 ore
+def delete_old_telegram_messages() -> None:
+    telegram_bot_token = sanitize_env_var(os.getenv("TELEGRAM_BOT_TOKEN"))
+    chat_id = sanitize_env_var(os.getenv("TELEGRAM_CHAT_ID"))
+    url = f"https://api.telegram.org/bot{telegram_bot_token}/getUpdates"
 
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(url)
         if response.status_code == 200:
-            matches = response.json().get("matches", [])
-            today = datetime.now(ZoneInfo("Europe/Rome")).strftime("%Y-%m-%d")
-            # Filtra le partite di oggi
-            return [
-                f"{match['homeTeam']['name']} vs {match['awayTeam']['name']} - {match['utcDate']}"
-                for match in matches if match['utcDate'].startswith(today)
-            ]
+            updates = response.json().get("result", [])
+            now = datetime.now(timezone.utc)
+
+            for update in updates:
+                if "message" in update:
+                    message_date = datetime.fromtimestamp(update["message"]["date"], timezone.utc)
+                    message_id = update["message"]["message_id"]
+
+                    # Controlla se il messaggio è più vecchio di 24 ore
+                    if now - message_date > timedelta(hours=24):
+                        delete_url = f"https://api.telegram.org/bot{telegram_bot_token}/deleteMessage"
+                        payload = {
+                            "chat_id": chat_id,
+                            "message_id": message_id
+                        }
+                        delete_response = requests.post(delete_url, json=payload)
+                        if delete_response.status_code == 200:
+                            logging.info(f"Deleted message ID {message_id}")
+                        else:
+                            logging.error(f"Failed to delete message ID {message_id}: {delete_response.text}")
         else:
-            logging.error(f"Errore API FootballData: {response.status_code} - {response.text}")
-            return []
+            logging.error(f"Failed to fetch updates: {response.status_code} - {response.text}")
     except requests.exceptions.RequestException as e:
-        logging.error(f"Errore nella chiamata API: {e}")
-        return []
+        logging.error(f"Error during Telegram API call: {e}")
 
 # Funzione principale per verificare l'ora e inviare il messaggio
 def main():
     # Imposta il fuso orario di Roma
     rome_tz = ZoneInfo("Europe/Rome")
     current_time = datetime.now(rome_tz)
+
+    # Esegue la cancellazione dei messaggi obsoleti
+    delete_old_telegram_messages()
 
     # Controlla se è mezzogiorno
     if current_time.hour == 12 and current_time.minute == 0:
