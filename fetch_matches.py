@@ -66,6 +66,11 @@ def delete_old_telegram_messages() -> None:
     except requests.exceptions.RequestException as e:
         logging.error(f"Error during Telegram API call: {e}")
 
+# Nuova funzione aggiunta per ottenere gli eventi del calendario
+def get_calendar_events():
+    # Placeholder: inserisci logica reale per ottenere eventi del calendario
+    return ["Evento 1 alle 14:00", "Evento 2 alle 18:00"]
+
 # Funzione principale per verificare l'ora e inviare il messaggio
 def main():
     # Imposta il fuso orario di Roma
